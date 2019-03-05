@@ -6,16 +6,37 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Home</title>
 
-        <link rel="stylesheet" href="">
-        <script src=""></script>
+        <link rel="stylesheet" href="./css/bootstrap-4.0.0.min.css">
+
+        <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/popper-1.12.9.min.js"></script>
+        <script src="./js/bootstrap-4.0.0.min.js"></script>
     </head>
-    <body>
-        <div class = "col-sm-1"> </div>
-        <div class = "col-sm-10">
+    <body class = "col-sm-12">
+        <div class = "col-sm-2"> </div>
+        <div class = "col-sm-8">
+            <!-- To post new stuffs -->
+            <div class = "new-post">
+                <div class = "col-sm-12">
+                    <textarea name="" id="" cols="100" rows="3"></textarea>
+                </div>
+                <div class = "col-sm-12">
+                    <!-- Small button to embed stuffs (images, etc) -->
+                    <div class = "col-sm-6">
+                        <button> Post Image</button>
+                    </div>
+                    <div class = "col-sm-3"></div>
+                    <!-- Button to post something -->
+                    <div class = "col-sm-3">
+                        <button> Post </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- 1 div = 1 post + comments -->
             <div class="post col-sm-12">
                 <!-- Post here -->
-                <div class = "col-sm-">
+                <div class = "col-sm-12">
                     <!-- Display User that posts -->
                     <div class = "col-sm-12">
                         <!-- Profile Picture -->
@@ -66,6 +87,6 @@
                 </div>
             </div>
         </div>
-        <div class = "col-sm-1"> </div>
+        <div class = "col-sm-2"> </div>
     </body>
 </html>
