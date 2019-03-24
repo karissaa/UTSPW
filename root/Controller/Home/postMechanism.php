@@ -10,10 +10,8 @@
         $uploadOk = true;
 
         $_SESSION['post'] = false;
-        print_r($_FILES['graphicFile']);
 
         if($_FILES['graphicFile']['error'] == 0){
-            echo '<br> with image <br>';
             $targetPath= '../../Images/User/' . $_SESSION['user_id'] . '/' . $datePost;
 
             if(!is_dir($targetPath)){
@@ -32,7 +30,7 @@
                 $uploadOk = true;            
             }
             else{
-                $targetPath = null;
+                $targetPath = '';
                 $uploadOk = false;
             }
         }

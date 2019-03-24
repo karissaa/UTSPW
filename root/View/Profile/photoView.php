@@ -12,9 +12,9 @@
                     echo '<div class="container">';
                         echo '<div class="row">';
                             echo '<div class="col-md-2"> ';
-                                echo '<img class="img-fluid d-block" style = \'height: 350px; width: 250px; object-fit: scale-down;\' src="' . $photos[$ctr][0] . '">';
+                                echo '<img class="img-fluid" style = \'height: 350px; width: 250px; object-fit: scale-down;\' src="' . $photos[$ctr][0] . '">';
             }
-            else echo '<img class="img-fluid d-block" style = \'height: 350px; width: 250px; object-fit: scale-down;\' src="' . $photos[$ctr][0] . '">';
+            else echo '<img class="img-fluid" style = \'height: 350px; width: 250px; object-fit: scale-down;\' src="' . $photos[$ctr][0] . '">';
 
             if($ctr % 4 === 0 && $ctr > 0){
                             echo '</div>';
