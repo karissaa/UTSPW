@@ -7,8 +7,16 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
         <?php
-            if($signup_failed) echo '<script> alert("Sign Up Failed"); </script>'; 
-            else if(isset($_GET['ok_signup'])) echo '<script> alert("Sign Up Successful!"); </script>';
+            // if(isset($_GET['failed_signup'])) echo '<script> alert("Sign Up Failed"); </script>'; 
+            // else if(isset($_GET['ok_signup'])) echo '<script> alert("Sign Up Successful!"); </script>';
+
+            if(isset($_SESSION['failed'])){
+                if($_SESSION['failed'] == 'login') echo '<script> alert("Login Failed"); </script>';
+                if($_SESSION['failed'] == 'signup') echo '<script> alert("Sign Up Failed"); </script>';
+                if($_SESSION['failed'] == 'false') echo '<script> alert("Sign Up Successful!"); </script>';
+            }
+
+            session_destroy();
         ?>
     </head>
 
@@ -56,9 +64,7 @@
                     </div> 
 
                     <?php 
-                        //Bila ada flag $login_failed, munculkan error
-                        //Flag akan di set di bagian controller
-                        if($login_failed) 
+                        if(isset($_GET['failed_login'])) 
                             echo '<div class = \'alert alert-danger col-sm-12\'> Invalid username or password!</div>';
                     ?>
 

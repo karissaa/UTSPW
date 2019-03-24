@@ -1,11 +1,17 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        session_start();
+        
         $email = $_POST["email"];
         $pass = $_POST["password"];
 
         //Input sanitazion, di-escape, baru di strip
         $u_name = strip_tags(htmlspecialchars($email));
         $passwd = strip_tags(htmlspecialchars($pass));
+
+        $destination = 'loginController.php';
+        $_SESSION['failed'] = 'login';
+        unset($_SESSION['user_id']);
 
         try {
             include "../../Model/connection.php";
@@ -23,37 +29,20 @@
                 if($result['password'] == $passwd){ //Kalau login sukses             
                     //Session variable user_id di set di sini untuk digunakan di tempat-tempat lainnya
                     $_SESSION['user_id'] = $result['idUser'];
-
-                    
-                    $_SESSION['active_user']; //Session Variabel ini rencananya akan menampung objek User
+                    unset($_SESSION['failed']);
 
                     //Set Destination
                     $destination = '../Home/homeController.php';
-                    $fail = false;
                 } 
             }
-
-            if($fail) {
-                unset($_SESSION['user_id']);
-                session_destroy();
-
-                $destination = 'loginController.php?failed_login';
-            }
-
-            //Free resource
-            $result = null;
-            $query = null;
-            $db = null;
-            
-            echo $destination;
-
-            header("Location: " . $destination);
-            die();
         } catch (PDOException $e) {
-            $result = null;
-            $query = null;
-            $db = null;
-            echo "Database Error : " . $e.getMessage();
+            echo "Database Error : " . $e->getMessage();
         }
     }
+    //Free resource
+    $result = null;
+    $query = null;
+    $db = null;
+
+    header("Location: " . $destination);
 ?>

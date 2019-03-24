@@ -12,6 +12,10 @@
         $currDate        = date('Y-m-d H:i:s');
 
         if($passwd === $confirmPassword){
+            session_start();
+
+            $_SESSION['failed'] = 'signup';
+
             try {
                 include '../../Model/connection.php';
     
@@ -25,28 +29,14 @@
                 $query->bindParam(':email', $email);
                 $query->bindParam(':currTime', $currDate);
 
-                if($query->execute()) $destination .= '?ok_signup';
-                else $destination .= '?failed_signup';
-                
-                $query = null;
-                $db = null;                    
-    
+                if($query->execute()) $_SESSION['failed'] = 'false';
             } catch (PDOException $e) {
-                $query = null;
-                $db = null;
                 echo 'Database Error : ' . $e->getMessage();
-                $destination .= '?failed_signup';
             }
         }
-
-        echo $displayName . "\n";
-        echo $uname . "\n";
-        echo $passwd . "\n";
-        echo $gender . "\n";
-        echo $birthday . "\n";
-        echo $email . "\n";
-        echo date('Y-m-d H:i:s') . "\n";
     }
+    $query = null;
+    $db = null;    
 
     header('Location: ' . $destination);
 ?>

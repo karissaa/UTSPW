@@ -6,6 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+
+  <script>
+    <?php
+      if(isset($_SESSION['post'])){
+
+        if($_SESSION['post']) echo 'alert("Post Successful!")';
+        else echo 'alert("Post Failed! Please try again in a few minutes!")';
+
+        unset($_SESSION['post']);
+      }
+
+      if(isset($_SESSION['comment'])){
+        if($_SESSION['comment']) echo 'alert("Comment Successful!")';
+        else echo 'alert("Comment Failed! Please try again in a few minutes!")';
+
+        unset($_SESSION['comment']);
+      }
+    ?>
+  </script>
 </head>
 
 <body>
@@ -93,6 +112,7 @@
                         echo "</div>";
 
                         echo "<p> {$post->getText()} </p>";
+                        echo $post->getImageDir() == null ? '' : "<img class='d-block img-fluid' src='{$post->getImageDir()}' style = 'height: 100%; width: 100%; object-fit: scale-down;'>"; 
 
                         echo "<div class='tab-content mt-2'>";
                           echo "<div class='tab-pane fade' id='tabthree' role='tabpanel'>";
@@ -104,7 +124,7 @@
 
                     echo "<ul class='nav nav-pills border-left border-right border-bottom'>";
                       echo "<li class='nav-item'>";
-                        echo "<button class = 'btn btn-default nav-link'>" ;
+                        echo "<button class = 'btn btn-default nav-link' onclick = 'displayCommentInput({$post->getIDPost()})'>" ;
                           echo "<i class='fa fa-lg fa-comment'></i>" ;
                           echo ' ' . (array_key_exists($post->getIDPost(), $commentArr) ? sizeof($commentArr[$post->getIDPost()]) : 0);
                         echo "</button>" ;
@@ -120,24 +140,19 @@
                       echo "</li>";
                     echo "</ul>";
 
-                    //Agak ga rapi, kucoba benerin pake yang atasw
-                    // echo "<ul class='nav nav-pills border-left border-right border-bottom'>" ;
-                    //   echo "<li class='nav-item'>";
-                    //     echo "<a href='' class='nav-link' data-toggle='pill' data-target='#tabone'>" ;
-                    //       echo "<i class='fa fa-lg fa-comment'></i> " ;
-                    //       echo ' ' . (array_key_exists($post->getIDPost(), $commentArr) ? sizeof($commentArr[$post->getIDPost()]) : 0);
-                    //     echo "</a>" ;
-                    //   echo "</li>" ;
-                    //   echo "<li class='nav-item'>" ;
-                    //     echo "<a class='nav-link' href='' data-toggle='pill' data-target='#tabtwo'>" ;
-                    //       echo "<i class='fa fa-lg fas fa-thumbs-up'></i>" ;
-                    //       echo ' ' . (array_key_exists($post->getIDPost(), $postLikes) ? $postLikes[$post->getIDPost()][0] : 0);
-                    //     echo "</a>" ;
-                    //   echo "</li>" ;
-                    //   echo "<li class='nav-item'>" ;
-                    //       echo "<b class = ''> {$post->getDatePost()} </b>" ;
-                    //   echo "</li>" ;
-                    // echo "</ul>" ;
+                    echo "<div class = 'row m-0 border' id = '{$post->getIDPost()}' style = 'display: none;'>";
+                      echo "<form action='commentMechanism.php' method='post'>";
+                        echo "<div class='form-horizontal' style=''>";
+                          echo "<div class = 'input-group'>";
+                            echo "<input name = 'commentText' type='text' class='form-control input-lg' id='formComment' placeholder = 'Comment on this'  max = 255 required>";
+                            echo "<div class = 'input-group-btn'>";
+                              echo "<button type='submit' class='btn btn-primary'> Comment </button>";
+                            echo "</div>";    
+                          echo "</div>";
+                          echo "<input name = 'postID' type = 'hidden' value = '{$post->getIDPost()}'>";
+                        echo "</div>";
+                      echo "</form>";
+                    echo "</div>";
                     
                     //Comment Section
                     if(array_key_exists($post->getIDPost(), $commentArr)){
@@ -262,6 +277,14 @@
       }
 
       return false;
+    }
+
+    function displayCommentInput(postID){
+      let form =  document.getElementById(postID);
+
+      if(form.getAttribute('style') == 'display: none;')
+        form.setAttribute('style', 'display:block;');
+      else form.setAttribute('style', 'display: none;');
     }
   </script>
 </body>

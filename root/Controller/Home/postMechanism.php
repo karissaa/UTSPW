@@ -3,34 +3,54 @@
         session_start();
         $text = strip_tags(htmlspecialchars($_POST['postText']));
 
-        $datePost = date('Y-m-d H:i:s');
+        $datePost = date('Y-m-d H.i.s');
         $idUser = $_SESSION['user_id'];
+        $uploadedFile = $_FILES['graphicFile'];
+        $targetPath = null;    
+        $uploadOk = false;
 
-        //Untuk sementara, jangan post gambar dulu. Belum diimplement
-        $type;
-        if(isset($_FILE['graphicFile'])) $type = img;
-        else $type = 'txt';
+        $_SESSION['post'] = false;
 
-        $imgDirectory = null;
-        $destination = 'homeController.php';
+        if(isset($uploadedFile)){
+            $targetPath= '../../Images/User/' . $_SESSION['user_id'] . '/' . $datePost;
 
-        try {
-            include '../../Model/connection.php';
+            if(!is_dir($targetPath)){
+                $oldUmask = umask(0);
+                mkdir($targetPath, 0777, true);
+                umask($oldUmask);
+            }
 
-            $query = $db->prepare("INSERT INTO post (type, text, datePost, idUser, imgDirectory) VALUE (:type, :text, :datePost, :userID, :imgDir)");
-            $query->bindParam(':type', $type);
-            $query->bindParam(':text', $text);
-            $query->bindParam(':datePost', $datePost);
-            $query->bindParam(':userID', $idUser);
-            $query->bindParam(':imgDir', $imgDirectory);
+            $targetPath .= '/' . basename($uploadedFile['name']);
+            
+            $imageFileType = strtolower(pathinfo($targetPath,PATHINFO_EXTENSION));
 
-            if($query->execute()) $destination .= '?post_success';
-            else $destination .= '?post_failed';
-        } catch (PDOException $e) {
-            echo 'Database Error : ' . $e->getMessage();
+            if ($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg"){
+                $type = "img";
+                $uploadOk = move_uploaded_file($uploadedFile["tmp_name"], $targetPath);
+                $uploadOk = true;            
+            }
+            else $targetPath = null;
         }
 
-        echo $destination;
+        $imgDirectory = $targetPath;
+        $destination = 'homeController.php';
+
+        if($uploadOk){
+            try {
+                include '../../Model/connection.php';
+    
+                $query = $db->prepare("INSERT INTO post (type, text, datePost, idUser, imgDirectory) VALUE (:type, :text, :datePost, :userID, :imgDir)");
+                $query->bindParam(':type', $type);
+                $query->bindParam(':text', $text);
+                $query->bindParam(':datePost', $datePost);
+                $query->bindParam(':userID', $idUser);
+                $query->bindParam(':imgDir', $imgDirectory);
+    
+                if($query->execute()) $_SESSION['post'] = true;
+            } catch (PDOException $e) {
+                echo 'Database Error : ' . $e->getMessage();
+            }
+        }
 
         $query = null;
         $db = null; 

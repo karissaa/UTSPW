@@ -6,7 +6,7 @@
 
             //Ambil data-data user untuk ditampilkan (profile pic, nama, dll)
             //Query yang dicomment cuma akan ambil ID dari user-user friend, tetapi nanti error di comment
-            // $queryUsers = $db->prepare("SELECT idUser, dispName, gender, birthDate, email, dateRegistered, bio, phoneNum, profPic FROM user WHERE idUser IN (SELECT :userID UNION SELECT idFollower FROM relationship WHERE idFollowed = :userID)");
+            //$queryUsers = $db->prepare("SELECT idUser, dispName, gender, birthDate, email, dateRegistered, bio, phoneNum, profPic FROM user WHERE idUser IN (SELECT :userID UNION SELECT idFollower FROM relationship WHERE idFollowed = :userID)");
             $queryUsers = $db->prepare("SELECT idUser, dispName, gender, birthDate, email, dateRegistered, bio, phoneNum, profPic FROM user");            
             $queryUsers->bindParam(':userID', $_SESSION['user_id']);
 
@@ -51,9 +51,14 @@
                         
                         if($queryLikes->execute()){
                             $postLikes = $queryLikes->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
-                            
-                            //print_r($postLikes);
+
                             //Array of Post will be iterated in the view
+                            $postStatus;
+
+                            if(isset($_GET['post_success'])) $postStatus = 0;
+                            else if(isset($_GET['post_failed'])) $postStatus = 1;
+                            else if(isset($_GET['upload_failed'])) $postStatus = 2;
+                            
                             include "../../View/Home/homeView.php";
                         }
                     }
