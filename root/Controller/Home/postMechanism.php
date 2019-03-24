@@ -51,9 +51,9 @@
                 echo 'Database Error : ' . $e->getMessage();
             }
         }
-
-        $query = null;
-        $db = null; 
-        header('Location: ' . $destination);
     }
+
+    $query = null;
+    $db = null; 
+    header('Location: ' . $destination);
 ?>

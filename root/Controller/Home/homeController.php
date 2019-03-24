@@ -8,7 +8,6 @@
             //Query yang dicomment cuma akan ambil ID dari user-user friend, tetapi nanti error di comment
             //$queryUsers = $db->prepare("SELECT idUser, dispName, gender, birthDate, email, dateRegistered, bio, phoneNum, profPic FROM user WHERE idUser IN (SELECT :userID UNION SELECT idFollower FROM relationship WHERE idFollowed = :userID)");
             $queryUsers = $db->prepare("SELECT idUser, dispName, gender, birthDate, email, dateRegistered, bio, phoneNum, profPic FROM user");            
-            $queryUsers->bindParam(':userID', $_SESSION['user_id']);
 
             if($queryUsers->execute()){
                 include '../../Model/User.php';
@@ -33,7 +32,7 @@
                     $userPosts = $queryPost->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Post');
                     $placeholderImage = '../../Images/User/avatar.png';
 
-                    $queryComments = $db->prepare("SELECT * FROM comment WHERE idPost IN (SELECT idPost FROM post WHERE idUser IN (SELECT :userID UNION SELECT idFollower FROM relationship WHERE idFollowed = :userID)) ORDER BY idPost, dateComment");
+                    $queryComments = $db->prepare("SELECT * FROM comment WHERE idPost IN (SELECT idPost FROM post WHERE idUser IN (SELECT :userID UNION SELECT idFollower FROM relationship WHERE idFollowed = :userID)) ORDER BY idPost, dateComment ASC");
                     $queryComments->bindParam(':userID', $_SESSION['user_id']);
 
                     if($queryComments->execute()){
@@ -53,11 +52,6 @@
                             $postLikes = $queryLikes->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
 
                             //Array of Post will be iterated in the view
-                            $postStatus;
-
-                            if(isset($_GET['post_success'])) $postStatus = 0;
-                            else if(isset($_GET['post_failed'])) $postStatus = 1;
-                            else if(isset($_GET['upload_failed'])) $postStatus = 2;
                             
                             include "../../View/Home/homeView.php";
                         }
@@ -66,6 +60,7 @@
             }
  
         } catch (PDOException $e) {
+            //Free resources
             $result = null;
             $query = null;
             $db = null;

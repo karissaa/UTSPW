@@ -2,11 +2,11 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         session_start();
         
-        $email = $_POST["email"];
+        $username = $_POST["u_name"];
         $pass = $_POST["password"];
 
         //Input sanitazion, di-escape, baru di strip
-        $u_name = strip_tags(htmlspecialchars($email));
+        $u_name = strip_tags(htmlspecialchars($username));
         $passwd = strip_tags(htmlspecialchars($pass));
 
         $destination = 'loginController.php';
@@ -19,8 +19,8 @@
             $destination;
             $fail = true;
 
-            $query = $db->prepare("SELECT * FROM user WHERE email = :email");
-            $query->bindParam(':email', $u_name, PDO::PARAM_STR);
+            $query = $db->prepare("SELECT * FROM user WHERE email = :uname OR username = :uname");
+            $query->bindParam(':uname', $u_name);
 
             if($query->execute()){
                 session_start();

@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-primary py-0">
             <div class="container-fluid"> <a class="navbar-brand" href="#">
                 <i class="fa d-inline fa-lg fa-stop-circle"> </i>
-                <b> BRAND </b>
+                <b> Twistagram </b>
             </a>
             <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
                 <span class="navbar-toggler-icon"></span>
@@ -38,47 +38,62 @@
         <!-- Slider goes in here -->
         <div class="bg-light m-0 p-0" style = "height: 715px;" >
             <div class="container-fluid m-0 p-0" style = "height: 715px;">
-            <div class="row  m-0 p-0" style = "height: 715px;">
-                <div class="d-flex flex-column justify-content-center p-0 m-0 w-100 col-md-10" style = "height: 715px;">
-                <div class="carousel slide m-0 p-0" style = "height: 715px;" data-ride="carousel" id="carousel">
-                    <div class="carousel-inner">
-                    <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="followinterest.png">
+                <div class="row  m-0 p-0" style = "height: 715px;">
+                    <div class="d-flex flex-column justify-content-center p-0 m-0 w-100 col-md-10" style = "height: 715px;">
+                        <div class="carousel slide m-0 p-0" style = "height: 715px;" data-ride="carousel" id="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"> 
+                                    <img class="d-block img-fluid w-100" src="followinterest.png">
+                                </div>
+                                <div class="carousel-item"> 
+                                    <img class="d-block img-fluid w-100" src="hear.png">
+                                </div>
+                                <div class="carousel-item"> 
+                                    <img class="d-block img-fluid w-100" src="join.png">
+                                </div>
+                            </div> 
+                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> 
+                                <span class="carousel-control-prev-icon"></span> 
+                                <span class="sr-only">Previous</span> 
+                            </a> 
+                            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon"></span> 
+                                <span class="sr-only">Next</span> 
+                            </a>
+                        </div>
                     </div>
-                    <div class="carousel-item"> <img class="d-block img-fluid w-100" src="hear.png">
+                    
+                    <div class="mx-auto col-10 bg-white col-md-2 pt-2" style="" id="loginForm">
+                        <h2 class="mb-4"> Sign In </h2>
+
+                        <!-- login form -->
+                        <form action="<?php echo $post_destination?>" method="POST">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Enter email or username" id="form9" name="u_name">
+                            </div>
+                            <div class="form-group mb-3"> 
+                                <input type="password" class="form-control" placeholder="Password" id="form10" name="password"> 
+                                <!-- <small class="form-text text-muted text-right">
+                                    <a href="#"> Forgot Password?</a>
+                                </small>  -->
+                            </div> 
+
+                            <?php 
+                                if(isset($_GET['failed_login'])) 
+                                    echo '<div class = \'alert alert-danger col-sm-12\'> Invalid username or password!</div>';
+                            ?>
+
+                            <button type="submit" name="cobaSubmit" class="btn btn-primary"> Sign In </button>
+                        </form>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="mt-4">Don't have any account? Join (Brand) today.</h4>
+                                <button class="btn btn-primary mt-2"  id = "signUpButton">Sign Up</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="carousel-item"> <img class="d-block img-fluid w-100" src="join.png">
-                    </div>
-                    </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
                 </div>
-                </div>
-                <div class="mx-auto col-10 bg-white col-md-2 pt-2" style="" id="loginForm">
-                <h2 class="mb-4"> Sign In </h2>
-
-                <!-- login form -->
-                <form action="<?php echo $post_destination?>" method="POST">
-                    <div class="form-group"> <input type="email" class="form-control" placeholder="Enter email" id="form9" name="email"> </div>
-                    <div class="form-group mb-3"> <input type="password" class="form-control" placeholder="Password" id="form10" name="password"> 
-                        <small class="form-text text-muted text-right">
-                            <a href="#"> Forgot Password?</a>
-                        </small> 
-                    </div> 
-
-                    <?php 
-                        if(isset($_GET['failed_login'])) 
-                            echo '<div class = \'alert alert-danger col-sm-12\'> Invalid username or password!</div>';
-                    ?>
-
-                    <button type="submit" name="cobaSubmit" class="btn btn-primary"> Sign In </button>
-                </form>
-
-                <div class="row">
-                    <div class="col-md-12">
-                    <h4 class="mt-4">Don't have any account? Join (Brand) today.</h4>
-                    <button class="btn btn-primary mt-2"  id = "signUpButton">Sign Up</button>
-                    </div>
-                </div>
-                </div>
-            </div>
             </div>
         </div>
 
@@ -91,6 +106,7 @@
 
                     <div class = "modal-body">
                         <div class="col-sm-2"></div>
+
                         <div class = "col-sm-8">
                             <div class = "col-md-12" id = "modal-details">
                                 <form action="<?php echo $signUpDestination;?>" method="POST">
@@ -106,7 +122,6 @@
                                         <label for="gender">Gender</label>
                                         <select name="gender" id="selectGender" class="form-control" required>   
                                             <option value="" disabled selected>--Select--</option>
-                                            
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                             <option value="Non-Binary">Non-Binary</option>
@@ -132,6 +147,7 @@
                                 </form>
                             </div>
                         </div>
+                        
                         <div class="col-sm-2"></div>
                     </div>
                 </div> <!-- /.modal-content -->
