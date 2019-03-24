@@ -8,6 +8,9 @@
 
         <link rel="stylesheet" href="">
         <script src=""></script>
+        <script src=""></script>
+        <script src=""></script>
+        <script src=""></script>
     </head>
     <body>
         <div class = "col-sm-1"> </div>
@@ -24,7 +27,6 @@
                         <!-- Username and stuffs -->
                         <div></div>
                     </div>
-
                     <!-- Images are optional in a post, will be set to show if there's any image -->
                     <img src="" display = "hidden">
 
