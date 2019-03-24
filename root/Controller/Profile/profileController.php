@@ -83,8 +83,6 @@
                     }
                 }
                 else if($target === 'following'){
-                    
-
                     $followedQuery = $db->prepare("SELECT idfollowed FROM relationship WHERE idfollower = :userID");
                     $followedQuery->bindParam(':userID', $_SESSION['user_id']);
 

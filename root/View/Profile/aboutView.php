@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="userBio"> User Bio </label>
-                                        <input type="text" name="userBio" class="form-control" required value="<?php if(isset($mainUser->getBio())) echo {$mainUser->getBio()};?>">
+                                        <input type="text" name="userBio" class="form-control" value="<?php if(isset($mainUser->getBio())) echo {$mainUser->getBio()};?>">
                                     </div>
                                     <button class="btn btn-primary" type="submit">Submit</button>
                                 </form>

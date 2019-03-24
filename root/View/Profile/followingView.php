@@ -31,7 +31,7 @@
                     echo "<div class='col-md-12'>";
                         echo "<div class='row'>";
                             echo "<div class='col-md-2'>";
-                                echo "<img class='img-fluid d-block rounded-circle' src='" . ($userArr[$follower['idFollower']]->getProfPic() == null || $userArr[$follower['idFollower']]->getProfPic() == '' ? $placeholderImage : $userArr[$follower['idFollower']]->getProfPic()) . "' width='100' height='150 150 100' style=''>";
+                                echo "<img class='img-fluid d-block rounded-circle' src='" . ($userArr[$follower['idFollowed']]->getProfPic() == null || $userArr[$follower['idFollowed']]->getProfPic() == '' ? $placeholderImage : $userArr[$follower['idFollowed']]->getProfPic()) . "' width='100' height='150 150 100' style=''>";
                             echo "</div>";
 
                             echo "<div class='col-md-5'>";

@@ -17,7 +17,7 @@
                 $_SESSION['follow'] = true;
             }
         } catch (PDOException $e){
-            echo 'Database Error : ' $e->getMessage();
+            echo 'Database Error : ' . $e->getMessage();
         }
     }
     else if(isset($_GET['unfollow'])){

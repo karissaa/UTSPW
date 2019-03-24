@@ -1,6 +1,6 @@
+<div class = "col-md-3 mx-auto"> </div>
+<div class = "col-md-6 mx-auto">
 <?php
-    echo '<div class = "col-md-3 mx-auto"> </div>';
-    echo '<div class = "col-md-6 mx-auto">';
     if($userPosts != null && isset($userPosts)){
         foreach($userPosts as $post){
             echo "<div class='row border mt-3 m-0'>";
@@ -89,6 +89,17 @@
     else{
         echo '<p> NO POST TO SHOW </p> </br>';
     }
-    echo '</div>';
-    echo '<div class = "col-md-3 ms-auto"> </div>';
+
 ?>
+</div>
+<div class = "col-md-3 mx-auto"> </div>
+
+<script>
+    function displayCommentInput(postID){
+        let form =  document.getElementById(postID);
+
+        if(form.getAttribute('style') == 'display: none;')
+            form.setAttribute('style', 'display:block;');
+        else form.setAttribute('style', 'display: none;');
+    }
+</script>
