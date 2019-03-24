@@ -68,7 +68,7 @@
         <div class="container-fluid m-0 p-0">
             <div class="col-md-12 m-0 p-0">
                 <!-- Cover Photo yang Gede -->
-                <div class="m-0 py-5 h-100" style="	background-image: url(IMG_20190221_234351.JPG);	background-position: center;	background-size: 100%;	background-repeat: repeat;">
+                <div class="m-0 py-5 h-100" style="	background-image: url(../../Images/Server/default.jpg);	background-position: center; background-size: 100%; object-fit: scale-down;">
                     <img class="d-block rounded-circle float-left p-0 m-0 ml-5 mb-2" src="<?= (($userArr[$_SESSION['user_id']]->getProfPic() == null || $userArr[$_SESSION['user_id']]->getProfPic() == '') ? $placeholderImage : $userArr[$_SESSION['user_id']]->getProfPic())?>" height="200px" style="transform: translateY(155px);" width="200px">
                     <div class="m-0 p-5"></div>
                     <div class="m-0 p-3"></div>

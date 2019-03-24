@@ -11,7 +11,7 @@
                 echo '<div class="py-3">';
                     echo '<div class="container">';
                         echo '<div class="row">';
-                            echo '<div class="col-md-3"> ';
+                            echo '<div class="col-md-2"> ';
                                 echo '<img class="img-fluid d-block" style = \'height: 350px; width: 250px; object-fit: scale-down;\' src="' . $photos[$ctr][0] . '">';
             }
             else echo '<img class="img-fluid d-block" style = \'height: 350px; width: 250px; object-fit: scale-down;\' src="' . $photos[$ctr][0] . '">';

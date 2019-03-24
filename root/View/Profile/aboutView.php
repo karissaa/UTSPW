@@ -40,12 +40,12 @@
                         <form action="editProfile.php" method="POST">
                             <div class="classform">
                                 <label for="userdisplayName">Display Name </label>
-                                <input type="text" class="form-control" name="userDisplayName" value="<?php if(isset($mainUser->getDisplayName())) echo $mainUser->getDisplayName();?>" required>
+                                <input type="text" class="form-control" name="userDisplayName" value="<?php if($mainUser->getDisplayName() !== null) echo $mainUser->getDisplayName();?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="gender">Gender</label>
                                 <select name="gender" id="selectGender" class="form-control" required>   
-                                    <option value="" disabled selected>--Select--</option>
+                                    <option value="" disabled <?$mainUser->getGender() === null ? 'selected' : '';?>> --Select-- </option>
                                     <option value="Male" <?=$mainUser->getGender() == 'Male' ? 'selected' : '';  ?>> Male </option>
                                     <option value="Female" <?=$mainUser->getGender() == 'Female' ? 'selected' : '';  ?>> Female </option>
                                     <option value="Non-Binary" <?=$mainUser->getGender() == 'Non-Binary' ? 'selected' : '';  ?> >Non-Binary</option>
@@ -53,15 +53,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="userBirthdate"> Birthdate </label>
-                                <input type="date" name="userBirthdate" class="form-control" required value="<?php if(isset($mainUser->getBirthDate())) echo $mainUser->getBirthDate();?>">
+                                <input type="date" name="userBirthdate" class="form-control" required value="<?php if($mainUser->getBirthDate() !== null) echo $mainUser->getBirthDate();?>">
                             </div>
                             <div class="form-group">
                                 <label for="userPhoneNumber">Phone Number</label>
-                                <input type="text" name="userPhoneNumber" class="form-control" required value="<?php if(isset($mainUser->getPhoneNum())) echo $mainUser->getBirthNum();?>">
+                                <input type="text" name="userPhoneNumber" class="form-control" required value="<?php if($mainUser->getPhoneNum() !== null) echo $mainUser->getBirthNum();?>">
                             </div>
                             <div class="form-group">
                                 <label for="userBio"> User Bio </label>
-                                <input type="text" name="userBio" class="form-control" value="<?php if(isset($mainUser->getBio())) echo $mainUser->getBio();?>">
+                                <input type="text" name="userBio" class="form-control" value="<?php if($mainUser->getBio() !== null) echo $mainUser->getBio();?>">
                             </div>
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </form>

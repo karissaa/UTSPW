@@ -43,13 +43,13 @@
                         <div class="carousel slide m-0 p-0" style = "height: 715px;" data-ride="carousel" id="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active"> 
-                                    <img class="d-block img-fluid w-100" src="../../Images/LoginCarousel/followinterest.png">
+                                    <img class="d-block img-fluid w-100" src="../../Server/Images/LoginCarousel/followinterest.png">
                                 </div>
                                 <div class="carousel-item"> 
-                                    <img class="d-block img-fluid w-100" src="../../Images/LoginCarousel/hear.png">
+                                    <img class="d-block img-fluid w-100" src="../../Server/Images/LoginCarousel/hear.png">
                                 </div>
                                 <div class="carousel-item"> 
-                                    <img class="d-block img-fluid w-100" src="../../Images/LoginCarousel/join.png">
+                                    <img class="d-block img-fluid w-100" src="../../Server/Images/LoginCarousel/join.png">
                                 </div>
                             </div> 
                             <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> 
