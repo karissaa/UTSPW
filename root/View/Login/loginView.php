@@ -73,9 +73,6 @@
                             </div>
                             <div class="form-group mb-3"> 
                                 <input type="password" class="form-control" placeholder="Password" id="form10" name="password"> 
-                                <!-- <small class="form-text text-muted text-right">
-                                    <a href="#"> Forgot Password?</a>
-                                </small>  -->
                             </div> 
 
                             <?php 
