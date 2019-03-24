@@ -64,6 +64,7 @@
                     if(!isset($searchResult)) echo '<p> No result </p>';
                     else{
                         foreach($searchResult as $result){
+                            if($result->getIDUser() == $_SESSION['user_id']) continue;
                             echo "<div class='py-2' style=''>";
                                 echo "<div class='container'>";
                                     echo "<div class='row'>";
