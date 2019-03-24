@@ -2,6 +2,9 @@
     if(isset($_GET['target'])){
         session_start();
 
+        if(!isset($_SESSION['user_id'])) header('Location: ../Login/loginController.php');
+
+
         $postID = $_GET['target'];
         $userID = $_SESSION['user_id'];
         $dateLike = date('Y-m-d h:i:s');

@@ -2,6 +2,8 @@
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         session_start();
 
+        if(!isset($_SESSION['user_id'])) header('Location: ../Login/loginController.php');
+
         $user_id = $_SESSION['user_id'];
         $post_id = $_POST['postID'];
         $commentText = $_POST['commentText'];

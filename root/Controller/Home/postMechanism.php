@@ -1,6 +1,8 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         session_start();
+        if(!isset($_SESSION['user_id'])) header('Location: ../Login/loginController.php');
+
         $text = strip_tags(htmlspecialchars($_POST['postText']));
 
         $datePost = date('Y-m-d H.i.s');

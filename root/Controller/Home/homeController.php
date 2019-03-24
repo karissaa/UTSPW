@@ -2,6 +2,9 @@
     if($_SERVER['REQUEST_METHOD'] === 'GET'){
         try {
             session_start();
+            if(!isset($_SESSION['user_id'])) header('Location: ../Login/loginController.php');
+
+
             include "../../Model/connection.php";
 
             //Ambil data-data user untuk ditampilkan (profile pic, nama, dll)

@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+    if(!isset($_SESSION['user_id'])) header('Location: ../Login/loginController.php');
+
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         try {
             include '../../Model/connection.php';

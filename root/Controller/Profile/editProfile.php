@@ -1,6 +1,9 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         session_start();
+
+        if(!isset($_SESSION['user_id'])) header('Location: ../Login/loginController.php');
+
         $userId = $_SESSION['user_id'];
         $displayName = strip_tags(htmlspecialchars($_POST['userDisplayName']));
         $gender = strip_tags(htmlspecialchars($_POST['gender']));
