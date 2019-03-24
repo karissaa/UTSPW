@@ -9,34 +9,33 @@
   
   <body class = "m-0 p-0">
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-      <div class="container-fluid"> 
-        <a class="navbar-brand" href="../Home/homeController.php">
-          <i class="fa d-inline fa-lg fa-stop-circle"></i>
-          <b> Twistagram </b>
-        </a>
-        <form class="form-inline my-2 my-lg-0" action = 'searchController.php' method = 'post'> 
-            <input class="form-control mr-sm-2" type="text" placeholder="Search other people..." required name = 'keyword'> 
-            <button class="btn my-2 my-sm-0 btn-outline-light text-dark" type="submit">
-                <i class="fa fa-search fa-fw"></i>Search
-            </button> 
-        </form>
-        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
-          <span class="navbar-toggler-icon"> </span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar16">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a class="nav-link" href="../Home/homeController.php">Home</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="../Profile/profileController.php?target=about">Profile</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="../Login/loginController.php">Logout</a> </li>
-          </ul> 
+        <div class="container-fluid"> 
+            <a class="navbar-brand" href="../Home/homeController.php">
+                <i class="fa d-inline fa-lg fa-stop-circle"></i>
+                <b> Twistagram </b>
+            </a>
+            <form class="form-inline my-2 my-lg-0" action = 'searchController.php' method = 'post'> 
+                <input class="form-control mr-sm-2" type="text" placeholder="Search other people..." required name = 'keyword'> 
+                <button class="btn my-2 my-sm-0 btn-outline-light text-dark" type="submit">
+                    <i class="fa fa-search fa-fw"></i>Search
+                </button> 
+            </form>
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
+                <span class="navbar-toggler-icon"> </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar16">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"> <a class="nav-link" href="../Home/homeController.php">Home</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="../Profile/profileController.php?target=about">Profile</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="../Login/loginController.php">Logout</a> </li>
+                </ul> 
+            </div>
         </div>
-      </div>
     </nav>
-    <div class="p-0">
+
+    <div class="py-5">
         <div class="row m-0 p-0">
-            <!-- Bagian Profil Singkat User -->
-            <div class="col-md-3 mx-auto">
-                <!-- Di sini bagian profil singkat user, perlu sesuaikan data user -->
+            <div class="col-md-3 ml-4">
                 <div class="card"> 
                     <img class="card-img-top" src="<?=($searchResult[$_SESSION['user_id']]->getProfPic() == null ? $placeholderImage : $searchResult[$_SESSION['user_id']]->getProfPic())?>">
                     <div class="card-body">
@@ -103,7 +102,7 @@
                 ?>
             </div>
 
-            <div class = 'mx-auto col-md-3'> </div>
+            <div class = 'col-md-3 ms-auto'> </div>
         </div>
     </div>
 

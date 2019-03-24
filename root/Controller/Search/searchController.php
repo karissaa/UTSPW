@@ -6,8 +6,9 @@
             include '../../Model/connection.php';
             $keyword = '%' .  $_POST['keyword'] . '%';
     
-            $userQuery = $db->prepare("SELECT idUser, dispName, gender, birthDate, email, dateRegistered, bio, phoneNum, profPic FROM user WHERE dispName LIKE :keyword");
-            $userQuery->bindParam(':keyword',$keyword);
+            $userQuery = $db->prepare("SELECT idUser, dispName, gender, birthDate, email, dateRegistered, bio, phoneNum, profPic FROM user WHERE dispName LIKE :keyword OR idUser = :userID");
+            $userQuery->bindParam(':keyword', $keyword);
+            $userQuery->bindParam(':userID', $_SESSION['user_id']);
     
             if($userQuery->execute()){
                 
@@ -27,7 +28,7 @@
                 $followedQuery->bindParam(':userID', $_SESSION['user_id']);
 
                 if($followedQuery->execute()){
-                    $followings = $followedQuery->fetchAll(PDO::FETCH_ASSOC);
+                    $followings = $followedQuery->fetchAll(PDO::FETCH_GROUP);
                 
                     include '../../View/Search/searchView.php';                
                 }
