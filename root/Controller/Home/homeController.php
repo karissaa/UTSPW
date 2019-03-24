@@ -32,7 +32,7 @@
                     $userPosts = $queryPost->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Post');
                     $placeholderImage = '../../Images/User/avatar.png';
 
-                    $queryComments = $db->prepare("SELECT * FROM comment WHERE idPost IN (SELECT idPost FROM post WHERE idUser IN (SELECT :userID UNION SELECT idFollower FROM relationship WHERE idFollowed = :userID)) ORDER BY idPost, dateComment ASC");
+                    $queryComments = $db->prepare("SELECT * FROM comment WHERE idPost IN (SELECT idPost FROM post WHERE idUser IN (SELECT :userID UNION SELECT idFollowed FROM relationship WHERE idFollower = :userID)) ORDER BY idPost, dateComment ASC");
                     $queryComments->bindParam(':userID', $_SESSION['user_id']);
 
                     if($queryComments->execute()){
@@ -51,14 +51,20 @@
                         if($queryLikes->execute()){
                             $postLikes = $queryLikes->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
 
-                            //Array of Post will be iterated in the view
+                            $likedQuery = $db->prepare("SELECT idPost FROM likes WHERE idUser = :userID");
+                            $likedQuery->bindParam(':userID', $_SESSION['user_id']);
+
+                            if($likedQuery->execute()){
+                                $likedPosts = $likedQuery->fetchAll(PDO::FETCH_COLUMN);
+                                
+                                //Array of Post will be iterated in the view
                             
-                            include "../../View/Home/homeView.php";
+                                include "../../View/Home/homeView.php";
+                            }
                         }
                     }
                 }
             }
- 
         } catch (PDOException $e) {
             //Free resources
             $result = null;

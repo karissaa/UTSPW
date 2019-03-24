@@ -52,16 +52,16 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="userBirthdate">Birthdate</label>
-                                <input type="date" name="userBirthdate" class="form-control" required value="<?php if(isset($mainUser->getBirthDate())) echo {$mainUser->getBirthDate()};?>">
+                                <label for="userBirthdate"> Birthdate </label>
+                                <input type="date" name="userBirthdate" class="form-control" required value="<?php if(isset($mainUser->getBirthDate())) echo $mainUser->getBirthDate();?>">
                             </div>
                             <div class="form-group">
                                 <label for="userPhoneNumber">Phone Number</label>
-                                <input type="text" name="userPhoneNumber" class="form-control" required value="<?php if(isset($mainUser->getPhoneNum())) echo {$mainUser->getBirthNum()};?>">
+                                <input type="text" name="userPhoneNumber" class="form-control" required value="<?php if(isset($mainUser->getPhoneNum())) echo $mainUser->getBirthNum();?>">
                             </div>
                             <div class="form-group">
                                 <label for="userBio"> User Bio </label>
-                                <input type="text" name="userBio" class="form-control" value="<?php if(isset($mainUser->getBio())) echo {$mainUser->getBio()};?>">
+                                <input type="text" name="userBio" class="form-control" value="<?php if(isset($mainUser->getBio())) echo $mainUser->getBio();?>">
                             </div>
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </form>

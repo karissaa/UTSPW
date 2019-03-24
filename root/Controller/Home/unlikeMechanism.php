@@ -4,7 +4,6 @@
 
         $postID = $_GET['target'];
         $userID = $_SESSION['user_id'];
-        $dateLike = date('Y-m-d h:i:s');
         $destination = 'homeController.php';
 
         if($_GET['source'] == 'profile') $destination = '../Profile/profileController.php?target=timeline';
@@ -12,10 +11,9 @@
         try {
             include '../../Model/connection.php';
 
-            $query = $db->prepare("INSERT INTO likes (idPost, idUser, dateLikes) VALUE (:postID, :userID, :dateLikes)");
+            $query = $db->prepare("DELETE FROM likes WHERE idPost = :postID AND idUser = :userID");
             $query->bindParam(':postID', $postID);
             $query->bindParam(':userID', $userID);
-            $query->bindParam(':dateLikes', $dateLike);
 
             $query->execute();
         } catch (PDOException $e) {
@@ -25,5 +23,5 @@
 
     $query = null;
     $db = null;
-    header('Location: ' . $destination);
+    header('Location: ' . $destination)
 ?>

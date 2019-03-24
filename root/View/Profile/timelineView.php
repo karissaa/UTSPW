@@ -33,7 +33,7 @@
                     echo "</button>" ;
                 echo "</li>";
                 echo "<li class='nav-item'>";
-                    echo "<button class = 'btn btn-default nav-link' onclick = 'window.location = '../Home/likeMechanism.php?target={$post->getIDPost()}&source=profile'>" ;
+                    echo "<button class = 'btn btn-default nav-link " . (in_array($post->getIDPost(),$likedPosts) ? "disabled' onclick = \"window.location = '../Home/unlikeMechanism.php?target={$post->getIDPost()}&source=profile'\">" : "' onclick = \"window.location = '../Home/likeMechanism.php?target={$post->getIDPost()}&source=profile'\">");    
                         echo "<i class='fa fa-lg fa-thumbs-up'></i>" ;
                         echo ' ' . (array_key_exists($post->getIDPost(), $postLikes) ? $postLikes[$post->getIDPost()][0] : 0);
                     echo "</button>" ;

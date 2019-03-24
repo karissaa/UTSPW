@@ -22,13 +22,6 @@
 
           unset($_SESSION['comment']);
         }
-
-        if(isset($_SESSION['like'])){
-          if($_SESSION['like']) echo 'alert("Liked Successfully!);';
-          else echo 'alert("Failed to like post! Try again in a few minutes");';
-
-          unset($_SESSION['like']);
-        }
       ?>
     </script>
   </head>
@@ -128,13 +121,13 @@
                           echo "<ul class='nav nav-pills border-left border-right border-bottom'>";
                               echo "<li class='nav-item'>";
                                   echo "<button class = 'btn btn-default nav-link' onclick = 'displayCommentInput({$post->getIDPost()})'>" ;
-                                    echo "<i class='fa fa-lg fa-comment'></i>" ;
+                                    echo "<i class='fa fa-lg fa-comment'> </i>" ;
                                     echo ' ' . (array_key_exists($post->getIDPost(), $commentArr) ? sizeof($commentArr[$post->getIDPost()]) : 0);
                                   echo "</button>" ;
                               echo "</li>";
                               echo "<li class='nav-item'>";
-                                  echo "<button class = 'btn btn-default nav-link' onclick = 'window.location = 'likeMechanism.php?target={$post->getIDPost()}&source=home'>" ;
-                                    echo "<i class='fa fa-lg fa-thumbs-up'></i>" ;
+                                  echo "<button class = 'btn btn-default nav-link " . (in_array($post->getIDPost(),$likedPosts) ? "disabled' onclick = \"window.location = 'unlikeMechanism.php?target={$post->getIDPost()}&source=home'\">" : "' onclick = \"window.location = 'likeMechanism.php?target={$post->getIDPost()}&source=home'\">");                    
+                                    echo "<i class='fa fa-lg fa-thumbs-up'> </i>" ;
                                     echo ' ' . (array_key_exists($post->getIDPost(), $postLikes) ? $postLikes[$post->getIDPost()][0] : 0);
                                   echo "</button>" ;
                               echo "</li>";

@@ -28,12 +28,12 @@
       
                 unset($_SESSION['comment']);
             }
+
+            if(isset($_SESSION['profile_edit'])){
+                if($_SESSION['profile_edit']) echo 'alert("Successfully editted profile!")';
+                else echo 'alert("Failed to edit profile! Please try again in a few minutes!")';
       
-            if(isset($_SESSION['like'])){
-                if($_SESSION['like']) echo 'alert("Liked Successfully!);';
-                else echo 'alert("Failed to like post! Try again in a few minutes");';
-        
-                unset($_SESSION['like']);
+                unset($_SESSION['profile_edit']);
             }
         ?>
     </script>

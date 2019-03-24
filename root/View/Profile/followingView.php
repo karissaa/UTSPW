@@ -39,10 +39,10 @@
                                     echo "<div class='col-md-12'>";
                                         echo "<div class='row'>";
                                             echo "<div class='col-md-12'>";
-                                                echo "<h4 class=''> {$userArr[$follower['idFollower']]->getDisplayName()} </h4>";
+                                                echo "<h4 class=''> {$userArr[$follower['idFollowed']]->getDisplayName()} </h4>";
                                             echo "</div>";
                                             echo "<div class='col-md-12'>";
-                                                echo "<p class='text-monospace'> {$userArr[$follower['idFollower']]->getBio()}</p>";
+                                                echo "<p class='text-monospace'> {$userArr[$follower['idFollowed']]->getBio()}</p>";
                                             echo "</div>";
                                         echo "</div>";
                                     echo "</div>";
@@ -50,7 +50,7 @@
                             echo "</div>";
 
                             echo "<div class='col-md-5 text-right' style=''>";
-                                echo '<a class="btn w-25 my-3 btn-secondary" href="../follow.php?unfollow=' . $userArr[$follower['idFollower']]->getIDUser() . '"> Following </a>';
+                                echo '<a class="btn w-25 my-3 btn-secondary" href="../follow.php?unfollow=' . $userArr[$follower['idFollowed']]->getIDUser() . '"> Following </a>';
                             echo "</div>";
                         echo "</div>";
                     echo "</div>";

@@ -51,8 +51,16 @@
                             if($likeQuery->execute()){
                                 $postLikes = $likeQuery->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
 
-                                //Array of Post will be iterated in the view
-                                $includeView = 'timelineView.php';
+                                $likedQuery = $db->prepare("SELECT idPost FROM likes WHERE idUser = :userID");
+                                $likedQuery->bindParam(':userID', $_SESSION['user_id']);
+    
+                                if($likedQuery->execute()){
+                                    $likedPosts = $likedQuery->fetchAll(PDO::FETCH_COLUMN);
+                                    
+                                    //Array of Post will be iterated in the view
+                                
+                                    $includeView = 'timelineView.php';
+                                }
                             }
                         }
                     }
@@ -73,7 +81,7 @@
                     }
                 }
                 else if($target === 'follower'){
-                    $followerQuery = $db->prepare("SELECT idFollower, CASE WHEN idFollower IN (SELECT idfollowed FROM relationship WHERE idfollower = :userID) THEN 'yes' ELSE 'no' END AS follback FROM relationship WHERE idfollowed = :userID ORDER BY dateFollow DESC");
+                    $followerQuery = $db->prepare("SELECT idFollower, CASE WHEN idFollower IN (SELECT idFollowed FROM relationship WHERE idFollower = :userID) THEN 'yes' ELSE 'no' END AS follback FROM relationship WHERE idFollowed = :userID ORDER BY dateFollow DESC");
                     $followerQuery->bindParam(':userID', $_SESSION['user_id']);
 
                     if($followerQuery->execute()){
@@ -83,7 +91,7 @@
                     }
                 }
                 else if($target === 'following'){
-                    $followedQuery = $db->prepare("SELECT idfollowed FROM relationship WHERE idfollower = :userID");
+                    $followedQuery = $db->prepare("SELECT idFollowed FROM relationship WHERE idFollower = :userID");
                     $followedQuery->bindParam(':userID', $_SESSION['user_id']);
 
                     if($followedQuery->execute()){
