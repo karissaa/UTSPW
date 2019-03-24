@@ -33,7 +33,7 @@
                     echo "</button>" ;
                 echo "</li>";
                 echo "<li class='nav-item'>";
-                    echo "<button class = 'btn btn-default nav-link' onclick = 'window.location.href = 'likeMechanism.php?target={$post->getIDPost()}'>" ;
+                    echo "<button class = 'btn btn-default nav-link' onclick = 'window.location.href = '../Home/likeMechanism.php?target={$post->getIDPost()}&source=profile'>" ;
                         echo "<i class='fa fa-lg fa-thumbs-up'></i>" ;
                         echo ' ' . (array_key_exists($post->getIDPost(), $postLikes) ? $postLikes[$post->getIDPost()][0] : 0);
                     echo "</button>" ;
@@ -44,12 +44,13 @@
             echo "</ul>";
 
             echo "<div class = 'row m-0 border' id = '{$post->getIDPost()}' style = 'display: none;'>";
-                echo "<form action='commentMechanism.php' method='post'>";
+                echo "<form action='../Home/commentMechanism.php' method='post'>";
                     echo "<div class='form-horizontal' style=''>";
                         echo "<div class = 'input-group'>";
                             echo "<input name = 'commentText' type='text' class='form-control input-lg' id='formComment' placeholder = 'Comment on this'  max = 255 required>";
                             echo "<div class = 'input-group-btn'>";
                             echo "<button type='submit' class='btn btn-primary'> Comment </button>";
+                            echo '<input type = "hidden" name = "source" value = "profile">';
                             echo "</div>";    
                         echo "</div>";
                         echo "<input name = 'postID' type = 'hidden' value = '{$post->getIDPost()}'>";

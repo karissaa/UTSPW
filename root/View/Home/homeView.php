@@ -133,7 +133,7 @@
                                   echo "</button>" ;
                               echo "</li>";
                               echo "<li class='nav-item'>";
-                                  echo "<button class = 'btn btn-default nav-link' onclick = 'window.location.href = 'likeMechanism.php?terget={$post->getIDPost()}'>" ;
+                                  echo "<button class = 'btn btn-default nav-link' onclick = 'window.location.href = 'likeMechanism.php?terget={$post->getIDPost()}&source=home'>" ;
                                     echo "<i class='fa fa-lg fa-thumbs-up'></i>" ;
                                     echo ' ' . (array_key_exists($post->getIDPost(), $postLikes) ? $postLikes[$post->getIDPost()][0] : 0);
                                   echo "</button>" ;
@@ -149,6 +149,7 @@
                                       echo "<div class = 'input-group'>";
                                           echo "<input name = 'commentText' type='text' class='form-control input-lg' id='formComment' placeholder = 'Comment on this'  max = 255 required>";
                                           echo "<div class = 'input-group-btn'>";
+                                          echo '<input type = "hidden" name = "source" value = "home">';
                                           echo "<button type='submit' class='btn btn-primary'> Comment </button>";
                                           echo "</div>";    
                                       echo "</div>";
@@ -239,20 +240,20 @@
 
               preview.appendChild(image);
               label.innerText = 'Change Image';
-              preview.style.opacity = 100;
-              clearInput.style.opacity = 100;
+              preview.setAttribute('style','')
+              clearInput.setAttribute('style','')
               clearInput.onclick = function(){
                 //Reset Input Image nya
                 input.type ='';
                 input.type ='file';
-                clearInput.style.opacity = 0;
-                preview.style.opacity = 0;
+                clearInput.setAttribute('style','');
+                preview.setAttribute('style','');
                 label.innerText = 'Upload Image';
                 preview.innerHTML = '';
               }
             } else {
               alert("Invalid file type for file chosen! Only accepts PNG or JPEG/JPG files!");
-              clearInput.style.opacity = 0;
+              clearInput.setAttribute('style','display:none;');
               label.innerText = 'Upload Image';
               clearInput.onclick = '';
               preview.innerHTML = '';
@@ -266,10 +267,10 @@
       let preview = document.getElementById('preview');
       let label = document.getElementById("fileLabel");
       
-      input.style.opacity = 0;
-      clearInput.style.opacity = 0;
+      input.setAttribute('style','display:none;');
+      clearInput.setAttribute('style','display:none;');
       input.addEventListener('change', updateImageDisplay);
-      preview.style.opacity = 0;
+      preview.setAttribute('style','display:none;');
 
       var fileTypes = [
         'image/jpeg',
@@ -294,6 +295,13 @@
           form.setAttribute('style', 'display:block;');
         else form.setAttribute('style', 'display: none;');
       }
+
+      $(document).ready(
+        function(){
+          input.type ='';
+          input.type ='file';
+        }
+      );
     </script>
   </body>
 </html>

@@ -6,6 +6,9 @@
         $postID = $_GET['target'];
         $userID = $_SESSION['user_id'];
         $dateLike = date('Y-m-d h:i:s');
+        $destination = 'homeController.php';
+
+        if($_GET['source'] == 'profile') $destination = '../Profile/profileController.php'
 
         try {
             include '../../Model/connection.php';
@@ -24,5 +27,5 @@
 
     $query = null;
     $db = null;
-    header('Location: homeController.php');
+    header('Location: ' . $destination);
 ?>

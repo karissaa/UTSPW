@@ -21,7 +21,7 @@
                 }                
                 
                 //Ambil post-post dari user yang login dan teman-temannya (1 degree)
-                $queryPost = $db->prepare("SELECT * FROM post WHERE idUser IN (SELECT :userID UNION SELECT idFollower FROM relationship WHERE idFollowed = :userID) ORDER BY datePost DESC");
+                $queryPost = $db->prepare("SELECT * FROM post WHERE idUser IN (SELECT :userID UNION SELECT idFollowed FROM relationship WHERE idFollower = :userID) ORDER BY datePost DESC");
                 $queryPost->bindParam(':userID', $_SESSION['user_id']);
 
                 if($queryPost->execute()){

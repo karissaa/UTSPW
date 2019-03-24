@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="">
+<!-- <div class="">
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
@@ -20,76 +20,43 @@
             <div class="col-md-2"></div>
         </div>
     </div>
-</div>
+</div> -->
 
 <?php
-    print_r($followers);
+    // print_r($followers);
+    foreach($followers as $follower){
+        echo "<div class='py-2' style=''>";
+            echo "<div class='container'>";
+                echo "<div class='row'>";
+                    echo "<div class='col-md-12'>";
+                        echo "<div class='row'>";
+                            echo "<div class='col-md-2'>";
+                                echo "<img class='img-fluid d-block rounded-circle' src='" . ($userArr[$follower['idFollower']]->getProfPic() == null || $userArr[$follower['idFollower']]->getProfPic() == '' ? $placeholderImage : $userArr[$follower['idFollower']]->getProfPic()) . "' width='100' height='150 150 100' style=''>";
+                            echo "</div>";
 
-    // foreach($followers as $follower){
-    //     echo "<div class='py-2' style=''>";
-    //         echo "<div class='container'>";
-    //             echo "<div class='row'>";
-    //                 echo "<div class='col-md-12'>";
-    //                     echo "<div class='row'>";
-    //                         echo "<div class='col-md-2'>";
-    //                             echo "<img class='img-fluid d-block rounded-circle' src='https://static.pingendo.com/img-placeholder-1.svg' width='100' height='150 150 100' style=''>";
-    //                         echo "</div>";
+                            echo "<div class='col-md-5'>";
+                                echo "<div class='row'>";
+                                    echo "<div class='col-md-12'>";
+                                        echo "<div class='row'>";
+                                            echo "<div class='col-md-12'>";
+                                                echo "<h4 class=''> {$userArr[$follower['idFollower']]->getDisplayName()} </h4>";
+                                            echo "</div>";
+                                            echo "<div class='col-md-12'>";
+                                                echo "<p class='text-monospace'> {$userArr[$follower['idFollower']]->getBio()}</p>";
+                                            echo "</div>";
+                                        echo "</div>";
+                                    echo "</div>";
+                                echo "</div>";
+                            echo "</div>";
 
-    //                         echo "<div class='col-md-5'>";
-    //                             echo "<div class='row'>";
-    //                                 echo "<div class='col-md-12'>";
-    //                                     echo "<div class='row'>";
-    //                                         echo "<div class='col-md-12'>";
-    //                                             echo "<h4 class=''>Nama</h4>";
-    //                                         echo "</div>";
-    //                                         echo "<div class='col-md-12'>";
-    //                                             echo "<p class='text-monospace'>Monospace. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>";
-    //                                         echo "</div>";
-    //                                     echo "</div>";
-    //                                 echo "</div>";
-    //                             echo "</div>";
-    //                         echo "</div>";
-
-    //                         echo "<div class='col-md-5 text-right' style=''>";
-    //                             echo "<a class='btn w-25 my-3 btn-light' href='#'>Follow</a>";
-    //                         echo "</div>";
-    //                     echo "</div>";
-    //                 echo "</div>";
-    //             echo "</div>";
-    //         echo "</div>";
-    //     echo "</div>";
-    // }
+                            echo "<div class='col-md-5 text-right' style=''>";
+                                if($follower['follback'] == 'yes') echo '<a class="btn w-25 my-3 btn-secondary" href="../follow.php?unfollow=' . $userArr[$follower['idFollower']]->getIDUser() . '"> Following </a>';
+                                else echo "<a class='btn w-25 my-3 btn-light' href='../follow.php?follow={$userArr[$follower['idFollower']]->getIDUser()}'> Follow </a>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+            echo "</div>";
+        echo "</div>";
+    }
 ?>
-
-<div class="py-2" style="">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img class="img-fluid d-block rounded-circle" src="https://static.pingendo.com/img-placeholder-1.svg" width="100" height="150 150 100" style="">
-                    </div>
-
-                    <div class="col-md-5">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4 class="">Nama</h4>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <p class="text-monospace">Monospace. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-5 text-right" style="">
-                        <a class="btn w-25 my-3 btn-light" href="#">Follow</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

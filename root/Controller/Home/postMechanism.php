@@ -5,13 +5,15 @@
 
         $datePost = date('Y-m-d H.i.s');
         $idUser = $_SESSION['user_id'];
-        $uploadedFile = $_FILES['graphicFile'];
-        $targetPath = null;    
-        $uploadOk = false;
+        $targetPath = '';
+        $type = 'txt';    
+        $uploadOk = true;
 
         $_SESSION['post'] = false;
+        print_r($_FILES['graphicFile']);
 
-        if(isset($uploadedFile)){
+        if($_FILES['graphicFile']['error'] == 0){
+            echo '<br> with image <br>';
             $targetPath= '../../Images/User/' . $_SESSION['user_id'] . '/' . $datePost;
 
             if(!is_dir($targetPath)){
@@ -20,21 +22,24 @@
                 umask($oldUmask);
             }
 
-            $targetPath .= '/' . basename($uploadedFile['name']);
+            $targetPath .= '/' . basename($_FILES['graphicFile']['name']);
             
             $imageFileType = strtolower(pathinfo($targetPath,PATHINFO_EXTENSION));
 
             if ($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg"){
                 $type = "img";
-                $uploadOk = move_uploaded_file($uploadedFile["tmp_name"], $targetPath);
+                $uploadOk = move_uploaded_file($_FILES['graphicFile']["tmp_name"], $targetPath);
                 $uploadOk = true;            
             }
-            else $targetPath = null;
+            else{
+                $targetPath = null;
+                $uploadOk = false;
+            }
         }
 
         $imgDirectory = $targetPath;
         $destination = 'homeController.php';
-
+        
         if($uploadOk){
             try {
                 include '../../Model/connection.php';
@@ -46,7 +51,9 @@
                 $query->bindParam(':userID', $idUser);
                 $query->bindParam(':imgDir', $imgDirectory);
     
-                if($query->execute()) $_SESSION['post'] = true;
+                if($query->execute())
+                    $_SESSION['post'] = true;
+                
             } catch (PDOException $e) {
                 echo 'Database Error : ' . $e->getMessage();
             }

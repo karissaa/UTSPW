@@ -58,7 +58,9 @@
                     }
                 }
                 else if($target === 'about'){
+                    $mainUser = $userArr[$_SESSION['user_id']];
 
+                    $includeView = 'aboutView.php';
                 }
                 else if($target === 'photo'){
                     $postQuery = $db->prepare("SELECT imgDirectory FROM post WHERE idUser = :userID AND (imgDirectory <> null OR imgDirectory <> '') ORDER BY datePost DESC");
@@ -71,7 +73,7 @@
                     }
                 }
                 else if($target === 'follower'){
-                    $followerQuery = $db->prepare("SELECT idFollower, CASE WHEN idfollower IN (SELECT idfollowed FROM relationship WHERE idfollower = :userID) THEN 'yes' ELSE 'no' END AS follback FROM relationship WHERE idfollowed = :userID");
+                    $followerQuery = $db->prepare("SELECT idFollower, CASE WHEN idFollower IN (SELECT idfollowed FROM relationship WHERE idfollower = :userID) THEN 'yes' ELSE 'no' END AS follback FROM relationship WHERE idfollowed = :userID ORDER BY dateFollow DESC");
                     $followerQuery->bindParam(':userID', $_SESSION['user_id']);
 
                     if($followerQuery->execute()){
@@ -79,10 +81,18 @@
 
                         $includeView = 'followerView.php';
                     }
-
                 }
                 else if($target === 'following'){
-        
+                    
+
+                    $followedQuery = $db->prepare("SELECT idfollowed FROM relationship WHERE idfollower = :userID");
+                    $followedQuery->bindParam(':userID', $_SESSION['user_id']);
+
+                    if($followedQuery->execute()){
+                        $followings = $followedQuery->fetchAll(PDO::FETCH_ASSOC);
+
+                        $includeView = 'followingView.php';
+                    }
                 }
             }
         } catch (PDOException $e) {

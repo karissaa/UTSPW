@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+    
+    <script>
+        <?php
+            if(isset($_SESSION['follow'])){
+                if($_SESSION['follow']) echo 'alert("Followed Successfully!")';
+                else echo 'alert("Failed to Follow! Try again in a few minutes!")';
+        
+                unset($_SESSION['follow']);
+            }
+
+            if(isset($_SESSION['unfollow'])){
+                if($_SESSION['unfollow']) echo 'alert("Unfollowed Successfully!")';
+                else echo 'alert("Failed to unfollow! Please try again in a few minutes!")';
+      
+                unset($_SESSION['unfollow']);
+            }
+
+            if(isset($_SESSION['comment'])){
+                if($_SESSION['comment']) echo 'alert("Comment Successful!")';
+                else echo 'alert("Comment Failed! Please try again in a few minutes!")';
+      
+                unset($_SESSION['comment']);
+            }
+      
+            if(isset($_SESSION['like'])){
+                if($_SESSION['like']) echo 'alert("Liked Successfully!);';
+                else echo 'alert("Failed to like post! Try again in a few minutes");';
+        
+                unset($_SESSION['like']);
+            }
+        ?>
+    </script>
     </head>
 
     <body class="m-0 p-0">

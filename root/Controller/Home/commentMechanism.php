@@ -8,6 +8,10 @@
         $dateComment = date('Y-m-d h:i:s');
         $destination = 'homeController.php';
 
+        if($_POST['source'] === 'profile'){
+            $destination = '../Profile/profileController.php';
+        }
+
         //By default false
         $_SESSION['comment'] = false;
 
