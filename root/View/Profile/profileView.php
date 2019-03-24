@@ -42,13 +42,15 @@
     <body class="m-0 p-0">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top m-0">
             <div class="container-fluid"> 
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="../Home/homeController.php">
                     <i class="fa d-inline fa-lg fa-stop-circle"></i>
                     <b> Twistagram </b>
                 </a>
-                <form class="form-inline my-2 my-lg-0"> 
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search other people..."> 
-                    <button class="btn my-2 my-sm-0 btn-outline-light text-dark" type="submit"><i class="fa fa-search fa-fw"></i>Search</button> 
+                <form class="form-inline my-2 my-lg-0" action = '../Search/searchController.php' method = 'post'> 
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search other people..." required name = 'keyword'> 
+                    <button class="btn my-2 my-sm-0 btn-outline-light text-dark" type="submit">
+                        <i class="fa fa-search fa-fw"></i>Search
+                    </button> 
                 </form> 
                 <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
                     <span class="navbar-toggler-icon"></span>

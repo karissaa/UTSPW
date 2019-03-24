@@ -1,7 +1,7 @@
 <?php
     session_start();
     $dateNow = date('Y-m-d h:i:s'); 
-    $destination = './Profile/profileController.php?target=follower';
+    $destination = './Profile/profileController.php?target=following';
 
     if(isset($_GET['follow'])){
         try{

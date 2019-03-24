@@ -8,22 +8,7 @@
     </div>
 </div>
 
-<!-- <div class="">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-
-            <div class="col-md-8" style="">
-                <input type="search" class="form-control w-100 text-center form-control-sm my-2" id="inlineFormInputGroup" placeholder="Search" style="">
-            </div>
-
-            <div class="col-md-2"></div>
-        </div>
-    </div>
-</div> -->
-
 <?php
-    // print_r($followers);
     foreach($followers as $follower){
         echo "<div class='py-2' style=''>";
             echo "<div class='container'>";

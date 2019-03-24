@@ -29,12 +29,12 @@
   <body class = "m-0 p-0">
     <nav class="navbar navbar-expand-md navbar-dark bg-primary">
       <div class="container-fluid"> 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="../Home/homeController.php">
           <i class="fa d-inline fa-lg fa-stop-circle"></i>
           <b> Twistagram </b>
         </a>
-        <form class="form-inline my-2 my-lg-0"> 
-          <input class="form-control mr-sm-2" type="text" placeholder="Search other people..."> 
+        <form class="form-inline my-2 my-lg-0" action = '../Search/searchController.php' method = 'post'> 
+          <input class="form-control mr-sm-2" type="text" placeholder="Search other people..." required name ='keyword'> 
           <button class="btn my-2 my-sm-0 btn-outline-light text-dark" type="submit">
             <i class="fa fa-search fa-fw"></i> Search
           </button> 
@@ -189,25 +189,7 @@
             </div>
           </div>
 
-          <div class = 'mx-auto col-md-2'>
-          </div>
-
-
-          <!-- Bagian Hashtag -->
-          <!-- <div class="mx-auto col-md-2">
-            <div class="card text-white bg-primary mb-3">
-              <div class="card-header">Hashtag</div>
-              <div class="card-body">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item text-body">#satu</li>
-                  <li class="list-group-item text-body">#dua</li>
-                  <li class="list-group-item text-body">#tiga</li>
-                  <li class="list-group-item text-body">#empat</li>
-                  <li class="list-group-item text-body" contenteditable="true">#lima</li>
-                </ul>
-              </div>
-            </div>
-          </div> -->
+          <div class = 'mx-auto col-md-2'> </div>
         </div>
     </div>
 
