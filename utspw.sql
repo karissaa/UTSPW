@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 01:27 PM
+-- Generation Time: Mar 24, 2019 at 07:56 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -1041,7 +1041,17 @@ INSERT INTO `comment` (`idComment`, `idPost`, `idUser`, `text`, `dateComment`) V
 (997, 261, 12, 'Will the rabbit learn this blushing expensive moon under a skyscraper?', '2019-01-14 16:33:51'),
 (998, 48, 46, 'That ball selflessly ate that buffalo above that debonair village.', '2019-02-22 04:15:36'),
 (999, 277, 1, 'Fix the dog!', '2019-01-07 22:06:12'),
-(1000, 60, 49, 'Will this buffalo grease that perspicacious low rabbit under that shrubbery?', '2019-02-05 08:59:46');
+(1000, 60, 49, 'Will this buffalo grease that perspicacious low rabbit under that shrubbery?', '2019-02-05 08:59:46'),
+(1001, 303, 1, 'Bisaa', '2019-03-23 20:08:42'),
+(1002, 230, 13, 'Hello guys!', '2019-03-23 21:20:09'),
+(1003, 305, 17, 'Cool bro! Where did you buy the Aero 15-X9. Does it installed with the original Windows Vista? Gonna grab one soon!', '2019-03-23 22:06:27'),
+(1004, 305, 17, 'Cool bro! Where did you buy the Aero 15-X9. Does it installed with the original Windows Vista? Gonna grab one soon!', '2019-03-23 22:06:43'),
+(1005, 108, 17, 'Hello guys!', '2019-03-23 22:06:52'),
+(1006, 230, 17, 'Hello guys!', '2019-03-23 22:07:10'),
+(1007, 305, 17, 'Hello guys!', '2019-03-23 22:07:27'),
+(1008, 306, 17, 'Cool bro! Where did you buy the Aero 15-X9. Does it installed with the original Windows Vista? Gonna grab one soon!', '2019-03-23 22:52:07'),
+(1009, 306, 40, 'Yeah, me too! I will buy it next week at IndoMarco!', '2019-03-23 22:57:21'),
+(1010, 306, 13, 'I bought it at the SuperMall. Yes, you guys should buy one! Definitely worth to have!', '2019-03-23 22:58:38');
 
 -- --------------------------------------------------------
 
@@ -3062,7 +3072,11 @@ INSERT INTO `likes` (`idLikes`, `idPost`, `idUser`, `dateLikes`) VALUES
 (1998, 110, 52, '2019-02-22 08:31:01'),
 (1999, 149, 53, '2019-02-10 07:36:18'),
 (2000, 22, 41, '2019-01-22 03:51:51'),
-(2001, 216, 42, '2019-01-28 01:13:15');
+(2001, 216, 42, '2019-01-28 01:13:15'),
+(2002, 306, 13, '2019-03-23 22:50:06'),
+(2003, 305, 13, '2019-03-23 22:50:16'),
+(2004, 262, 17, '2019-03-23 22:55:38'),
+(2005, 307, 13, '2019-03-23 23:19:37');
 
 -- --------------------------------------------------------
 
@@ -3384,7 +3398,14 @@ INSERT INTO `post` (`idPost`, `type`, `text`, `datePost`, `idUser`, `imgDirector
 (298, 'txt', 'Will this shrubbery above this cow glue that hatter?', '2019-01-02 12:37:15', 44, NULL),
 (299, 'txt', 'A doctor from that shrubbery milked this shark.', '2019-03-13 13:14:56', 43, NULL),
 (300, 'txt', 'Pull the programmer!', '2019-02-16 21:55:33', 31, NULL),
-(301, 'txt', 'Launch this brainy silly village!', '2019-01-27 12:35:14', 51, NULL);
+(301, 'txt', 'Launch this brainy silly village!', '2019-01-27 12:35:14', 51, NULL),
+(302, 'txt', 'Hello', '2019-03-24 00:14:10', 1, NULL),
+(303, 'img', 'Eonerals', '2019-03-24 07:38:45', 1, '../../Images/User/1/2019-03-24 14.38.45/eonerals.jpg'),
+(304, 'img', 'Those improvements are independent of Supercharger V3 power increase from 135kW to 250+kW. All factors considered, charge time will drop by factor of 4 best case &amp; more than 2 for whole Tesla fleet. Effectively, this more than doubles total WW Superch', '2019-03-24 08:35:53', 1, '../../Images/User/1/2019-03-24 15.35.53/2018-tesla-model-s-and-2018-tesla-model-x_100641508_m.jpg'),
+(305, 'img', 'The Aero 15-X9, has the same specs, but can also be equipped with an i7-8750H CPU and 15.6-inch 144Hz 1080p screen, on top of the i9 chip and 4K display option. ', '2019-03-24 10:00:48', 13, '../../Images/User/13/2019-03-24 17.00.48/dims.jpg'),
+(306, 'img', ' This extremely-light, 2.49-pound laptop lasts over 11 hours on a charge and packs one of the best keyboards you\'ll find on any device.', '2019-03-24 10:14:07', 13, '../../Images/User/13/2019-03-24 17.14.07/lenovo.jpg'),
+(307, 'img', 'It\'s the first laptop we\'ve seen to use Nvidia\'s new Maxq technology, which is an overall approach to laptop design to keep fan noise down.', '2019-03-24 11:00:51', 13, '../../Images/User/13/2019-03-24 18.00.51/omen.jpg'),
+(309, 'txt', 'The 15-inch HP Spectre x360 is a very attractive option if you\'re looking for the flexibility of a 2-in-1 with more space for work and play.', '2019-03-24 11:41:16', 13, '');
 
 -- --------------------------------------------------------
 
@@ -3703,7 +3724,10 @@ INSERT INTO `relationship` (`idRelation`, `idFollowed`, `idFollower`, `dateFollo
 (330, 53, 60, '2019-01-02 12:37:15'),
 (331, 56, 60, '2019-03-13 13:14:56'),
 (332, 57, 60, '2019-02-16 21:55:33'),
-(333, 58, 61, '2019-01-27 12:35:14');
+(333, 58, 61, '2019-01-27 12:35:14'),
+(334, 17, 13, '2019-03-23 22:48:53'),
+(335, 40, 13, '2019-03-23 23:37:50'),
+(336, 1, 13, '2019-03-24 00:53:23');
 
 -- --------------------------------------------------------
 
@@ -3722,75 +3746,76 @@ CREATE TABLE `user` (
   `dateRegistered` datetime(6) NOT NULL,
   `bio` varchar(255) DEFAULT NULL,
   `phoneNum` varchar(255) NOT NULL,
-  `profPic` varchar(255) DEFAULT NULL
+  `profPic` varchar(255) DEFAULT NULL,
+  `headerPic` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`idUser`, `username`, `password`, `dispName`, `gender`, `birthDate`, `email`, `dateRegistered`, `bio`, `phoneNum`, `profPic`) VALUES
-(1, 'HerrodBauer', 'VUS55B8B', 'Ezra Underwood', 'Male', '1999-09-05', 'mus@est.edu', '2016-12-20 07:08:08.000000', 'lorem, eget mollis lectus', '089005755930', NULL),
-(2, 'WillowPhillips', 'REN44M4H', 'Keefe Rivas', 'Female', '2002-03-23', 'libero.nec@sitametornare.edu', '2018-03-11 14:15:32.000000', 'nonummy. Fusce fermentum', '089471190330', NULL),
-(3, 'IvorFitzpatrick', 'JNX87O4P', 'Xaviera Oneal', 'Female', '1994-10-29', 'urna.convallis.erat@etmagnis.com', '2017-01-23 05:00:13.000000', 'libero at', '083369621139', NULL),
-(4, 'OliviaPatel', 'EVV50F4D', 'Palmer Ray', 'Male', '1981-03-04', 'magna.tellus@nibh.org', '2018-01-21 19:54:49.000000', 'erat, eget', '089367958878', NULL),
-(5, 'FullerCook', 'KYU20K6B', 'Aristotle Benjamin', 'Female', '2004-05-07', 'arcu.Morbi.sit@arcu.com', '2018-06-20 10:31:54.000000', 'risus quis diam', '083362876760', NULL),
-(6, 'CynthiaEspinoza', 'XAK99P0R', 'Cherokee Richard', 'Female', '1994-12-02', 'nec.urna@euismodestarcu.com', '2019-01-06 13:39:35.000000', 'leo. Vivamus', '084011644816', NULL),
-(7, 'GrantGallegos', 'OXA36E2X', 'Nina Burnett', 'Male', '1983-03-29', 'leo.Vivamus@ultriciesadipiscing.ca', '2016-12-02 06:51:43.000000', 'magna. Sed eu', '088517106412', NULL),
-(8, 'GenevieveFinley', 'VQF38T5G', 'Yasir Wooten', 'Male', '2006-05-22', 'mi@nibhDonec.co.uk', '2018-01-25 20:29:22.000000', 'commodo ipsum. Suspendisse non', '086769564101', NULL),
-(9, 'TeaganCole', 'HGX87O2S', 'Harrison Arnold', 'Female', '2009-01-25', 'in.felis.Nulla@nibhsit.edu', '2017-07-18 04:32:44.000000', 'nibh. Donec est', '081472621158', NULL),
-(10, 'VenusNoel', 'RVK13J1X', 'Ahmed Anderson', 'Female', '2008-12-13', 'urna.Vivamus@sed.ca', '2017-12-05 15:48:20.000000', 'magna tellus faucibus leo,', '086534076547', NULL),
-(11, 'JonasHunt', 'HNQ56K4I', 'Samantha Beard', 'Female', '2007-12-29', 'arcu.Morbi.sit@Pellentesquehabitantmorbi.com', '2017-12-02 21:27:55.000000', 'sodales. Mauris', '086794742592', NULL),
-(12, 'ElliottValencia', 'QAA83E0U', 'Demetria Sanford', 'Male', '2005-12-08', 'venenatis.lacus@Fusce.com', '2018-08-31 16:44:02.000000', 'eu, odio. Phasellus at', '081459580721', NULL),
-(13, 'SteelAnthony', 'QYO55S7O', 'Aquila Roy', 'Male', '1998-03-18', 'varius@anequeNullam.com', '2018-06-07 04:01:49.000000', 'morbi tristique senectus', '081218275578', NULL),
-(14, 'JackLara', 'KHH26S6K', 'Keith Elliott', 'Male', '1981-11-15', 'Sed.nulla@fringilla.co.uk', '2016-06-10 10:35:24.000000', 'odio. Phasellus at', '084876226697', NULL),
-(15, 'TylerSandoval', 'NFZ18X6H', 'Erich Cantrell', 'Male', '1990-04-10', 'ante.lectus.convallis@neque.org', '2016-03-22 04:25:04.000000', 'gravida sit amet, dapibus', '080131315989', NULL),
-(16, 'SybilWyatt', 'GTD32Z7Y', 'Malik Lambert', 'Male', '1982-01-23', 'quis.urna@nuncrisusvarius.net', '2019-01-06 01:38:51.000000', 'euismod ac, fermentum', '084978661432', NULL),
-(17, 'WadeAlvarado', 'OWV28H6V', 'Astra Joseph', 'Female', '2004-07-11', 'Cum@magnis.co.uk', '2018-04-09 06:01:49.000000', 'magna sed', '086022688363', NULL),
-(18, 'JasonErickson', 'LAA69S2Q', 'Joel Odonnell', 'Female', '2005-12-27', 'nec.leo.Morbi@Ut.edu', '2018-03-06 21:02:44.000000', 'Curabitur massa.', '086410731127', NULL),
-(19, 'KasperHopper', 'FAY27K3X', 'Shana Peterson', 'Female', '1990-11-13', 'nunc@netuset.com', '2018-05-26 01:49:18.000000', 'purus gravida', '080875534491', NULL),
-(20, 'AmosMolina', 'XOU06V8C', 'Charde Lester', 'Male', '1994-01-18', 'ornare.elit.elit@antedictumcursus.ca', '2017-09-18 17:04:15.000000', 'semper', '086831624542', NULL),
-(21, 'ColtMoran', 'HEY84S6U', 'Bryar Vang', 'Male', '2007-04-01', 'Phasellus.dapibus.quam@orciUt.edu', '2017-10-23 02:38:05.000000', 'imperdiet', '082239809773', NULL),
-(22, 'JulianClayton', 'UBQ51K0Y', 'Jamalia Mayo', 'Female', '2000-01-08', 'Donec@inmagna.org', '2017-05-21 08:37:37.000000', 'tempor lorem, eget mollis', '089245801552', NULL),
-(23, 'HadassahMorris', 'PTV35B6I', 'Slade Hansen', 'Female', '1985-07-24', 'semper@egestas.org', '2017-12-21 13:39:40.000000', 'consectetuer rhoncus. Nullam', '085586641137', NULL),
-(24, 'XylaBrady', 'SBM45X1V', 'Lucy Heath', 'Female', '1989-06-17', 'Curabitur@Maurismagna.edu', '2018-05-09 03:18:08.000000', 'pretium aliquet, metus', '085731026214', NULL),
-(25, 'QuentinBarnes', 'UMT10E2R', 'Naomi Craig', 'Female', '1996-04-25', 'lacinia.vitae.sodales@iaculislacus.net', '2019-01-31 09:48:03.000000', 'id, ante. Nunc mauris', '082165956486', NULL),
-(26, 'AmyBerg', 'QWH27S3F', 'Abbot Martin', 'Female', '2006-11-05', 'dapibus@et.net', '2017-05-30 11:23:59.000000', 'mattis ornare, lectus ante', '082005423521', NULL),
-(27, 'FritzKramer', 'JPR00Q6F', 'Kenneth Oneill', 'Male', '1983-05-25', 'pellentesque@leo.org', '2017-01-27 22:34:02.000000', 'porttitor', '088021263918', NULL),
-(28, 'KadenFields', 'AZN11J7W', 'Evelyn Burton', 'Male', '2008-09-05', 'Donec.sollicitudin@justoProinnon.co.uk', '2016-04-27 10:58:50.000000', 'Vivamus molestie dapibus', '086852379024', NULL),
-(29, 'CelesteVinson', 'UCQ73C3G', 'Zenaida Mcmahon', 'Male', '1982-08-06', 'taciti.sociosqu@Aliquam.ca', '2017-01-21 21:17:22.000000', 'arcu et pede. Nunc', '088034042002', NULL),
-(30, 'RoganSerrano', 'DPK44U2L', 'Sarah Orr', 'Female', '2001-05-17', 'at.augue@penatibus.co.uk', '2016-08-01 15:27:17.000000', 'ac mattis velit', '086528158869', NULL),
-(31, 'LamarOneal', 'DDC32Z8K', 'Mason Potts', 'Male', '1999-10-28', 'aliquet@massarutrum.co.uk', '2017-10-22 14:00:40.000000', 'faucibus id, libero. Donec', '080066308213', NULL),
-(32, 'ShellyLee', 'AOJ45K9D', 'Keith England', 'Female', '1992-07-16', 'at.libero@sapien.net', '2018-08-10 04:48:48.000000', 'nisi sem', '089255565530', NULL),
-(33, 'FerrisRobertson', 'YNH33N8N', 'Hector Gonzales', 'Male', '2009-08-26', 'lacus.Ut@ac.edu', '2018-04-09 18:27:17.000000', 'nascetur', '080008308637', NULL),
-(34, 'SteelDuffy', 'RCN10B5C', 'Ezra Combs', 'Male', '1980-05-03', 'eu.dolor@Phasellusliberomauris.org', '2017-04-23 04:48:15.000000', 'libero.', '086114473358', NULL),
-(35, 'OrliSherman', 'DNA79L1K', 'Paki Britt', 'Female', '2000-02-29', 'faucibus.leo@fringillapurus.edu', '2017-02-17 16:13:21.000000', 'vitae dolor. Donec', '081922738695', NULL),
-(36, 'QuamarHobbs', 'NMS39S1Y', 'Kitra Fleming', 'Male', '2003-09-26', 'tortor.dictum.eu@sitametrisus.org', '2018-06-16 02:45:23.000000', 'sollicitudin', '084762400886', NULL),
-(37, 'BriarStrickland', 'SBT58R3N', 'Dane Stuart', 'Male', '1999-09-01', 'at.fringilla@Proinvel.co.uk', '2018-10-01 06:24:33.000000', 'malesuada fames ac turpis', '087267231669', NULL),
-(38, 'RaymondReed', 'EAV16X9U', 'Phillip Hahn', 'Male', '1990-11-29', 'Cras.eu@acsem.org', '2016-12-15 21:46:51.000000', 'Donec', '086818257213', NULL),
-(39, 'ColePacheco', 'QNO53K3T', 'Portia Obrien', 'Male', '1985-06-21', 'vestibulum.lorem.sit@mi.co.uk', '2016-05-13 03:31:44.000000', 'pharetra. Quisque', '085110343975', NULL),
-(40, 'AquilaSawyer', 'FON92L6Y', 'Jada Rosario', 'Female', '2005-05-18', 'sit.amet.metus@cursusnon.org', '2017-06-07 13:30:24.000000', 'a,', '086072861880', NULL),
-(41, 'HedwigKey', 'XTV97N7B', 'Giacomo Roman', 'Female', '2003-01-02', 'at.nisi@elit.net', '2018-03-16 18:59:24.000000', 'Maecenas libero', '085793776814', NULL),
-(42, 'ShaeleighWatts', 'GBX96H8T', 'Lunea Dennis', 'Female', '2009-07-24', 'neque@loremsemperauctor.org', '2018-03-03 13:49:38.000000', 'mauris ut mi.', '082347637712', NULL),
-(43, 'KennethEverett', 'OEV65H5H', 'Hayfa Dunlap', 'Female', '1980-06-21', 'montes@mi.ca', '2016-07-03 06:52:17.000000', 'eu', '089672108918', NULL),
-(44, 'WyattMeyer', 'QFV53N2D', 'Reese Simon', 'Male', '2003-07-10', 'est.ac@Nuncac.org', '2019-01-04 12:19:56.000000', 'mattis.', '083994850276', NULL),
-(45, 'AmberStark', 'SFH77W2D', 'Cally Salas', 'Male', '1996-03-13', 'non@Curabiturut.com', '2016-05-01 08:11:34.000000', 'tincidunt,', '082265823798', NULL),
-(46, 'SloaneWebster', 'WPF17N4G', 'Nayda Ball', 'Male', '2000-09-25', 'Cum.sociis@Sedmalesuada.com', '2018-03-18 16:38:48.000000', 'pellentesque eget, dictum placerat,', '084274961849', NULL),
-(47, 'NevilleKennedy', 'SXB17N4K', 'Idona Mccray', 'Female', '1987-04-29', 'lorem.semper@elit.net', '2017-01-26 20:02:58.000000', 'porttitor scelerisque neque. Nullam', '089597448703', NULL),
-(48, 'AleaBrooks', 'AUT80C7J', 'Amos Ferrell', 'Male', '1998-02-26', 'Praesent.luctus@fringillaest.net', '2017-08-26 12:42:47.000000', 'orci tincidunt adipiscing. Mauris', '088779759934', NULL),
-(49, 'ReubenWeaver', 'LIM29M9Y', 'Keely Wiley', 'Female', '2009-12-27', 'dui.quis@Vestibulumanteipsum.com', '2016-10-27 21:28:22.000000', 'egestas. Duis ac', '083398209113', NULL),
-(50, 'RonanBlack', 'RXK72F1P', 'Colorado Wheeler', 'Female', '2005-10-16', 'vehicula@consequat.com', '2018-08-16 16:46:46.000000', 'iaculis', '082599939255', NULL),
-(51, 'DeanCantrell', 'PRT81L1S', 'Shaine Benjamin', 'Female', '2000-01-28', 'urna.convallis.erat@arcu.edu', '2017-06-12 16:48:48.000000', 'Nunc sed orci', '089574834829', NULL),
-(52, 'WallaceGreene', 'XPG66P6C', 'Desiree Nelson', 'Male', '1993-12-17', 'Nulla.dignissim@ullamcorper.com', '2017-05-29 12:58:27.000000', 'odio. Aliquam', '089552700294', NULL),
-(53, 'ScarletYoung', 'TGB70Q8Q', 'Jael Combs', 'Female', '1992-03-02', 'a@accumsan.org', '2018-08-04 19:10:02.000000', 'sagittis', '084545694921', NULL),
-(54, 'RossRiley', 'OMT10T0D', 'Serena Dorsey', 'Male', '1997-09-07', 'morbi.tristique@aliquetodio.ca', '2017-01-22 12:17:09.000000', 'lacus.', '085917534965', NULL),
-(55, 'XanthusVance', 'ZAD08M0V', 'Reese Delaney', 'Female', '1996-12-31', 'lorem.ipsum@aneque.ca', '2017-10-05 22:16:04.000000', 'dapibus ligula.', '080872009957', NULL),
-(56, 'ErichDavenport', 'AUV41X8U', 'Jackson Weber', 'Female', '2001-01-09', 'sed@lobortisClassaptent.edu', '2018-01-28 19:56:21.000000', 'neque. Nullam nisl.', '081459962355', NULL),
-(57, 'WendyReyes', 'LFB84Z9S', 'Colleen Griffin', 'Female', '1981-06-26', 'Mauris@felis.co.uk', '2017-10-03 10:39:38.000000', 'amet, consectetuer adipiscing', '085539851920', NULL),
-(58, 'LeonardBrady', 'SWV52A6J', 'Gisela Combs', 'Male', '1993-04-08', 'feugiat@turpisnon.ca', '2016-12-14 09:49:16.000000', 'augue, eu tempor', '089846011553', NULL),
-(59, 'StellaMcmillan', 'ZPE69E0R', 'Ursula Livingston', 'Female', '1984-08-01', 'pede.Cum.sociis@placeratvelitQuisque.edu', '2017-11-28 00:40:23.000000', 'sit amet luctus', '086706256097', NULL),
-(60, 'BrendenMccarty', 'PCD56P7W', 'Steven Wilson', 'Male', '2003-10-11', 'fringilla@fringillaDonec.edu', '2017-10-06 09:19:03.000000', 'et ipsum', '081446024989', NULL),
-(61, 'KayeLester', 'IYG04A5X', 'Shafira Howe', 'Male', '2004-09-20', 'Donec.est@eleifendCrassed.net', '2016-04-26 22:16:05.000000', 'Morbi vehicula. Pellentesque tincidunt', '083973094784', NULL);
+INSERT INTO `user` (`idUser`, `username`, `password`, `dispName`, `gender`, `birthDate`, `email`, `dateRegistered`, `bio`, `phoneNum`, `profPic`, `headerPic`) VALUES
+(1, 'HerrodBauer', 'VUS55B8B', 'Ezra Underwood', 'Male', '1999-09-05', 'mus@est.edu', '2016-12-20 07:08:08.000000', 'I\'ve always thought being popular on Twistagram is as about as useless as being rich in monopoly', '089005755930', '../../Images/User/1/profPic.png', ''),
+(2, 'WillowPhillips', 'REN44M4H', 'Keefe Rivas', 'Female', '2002-03-23', 'libero.nec@sitametornare.edu', '2018-03-11 14:15:32.000000', 'nonummy. Fusce fermentum', '089471190330', NULL, ''),
+(3, 'IvorFitzpatrick', 'JNX87O4P', 'Xaviera Oneal', 'Female', '1994-10-29', 'urna.convallis.erat@etmagnis.com', '2017-01-23 05:00:13.000000', 'libero at', '083369621139', NULL, ''),
+(4, 'OliviaPatel', 'EVV50F4D', 'Palmer Ray', 'Male', '1981-03-04', 'magna.tellus@nibh.org', '2018-01-21 19:54:49.000000', 'erat, eget', '089367958878', NULL, ''),
+(5, 'FullerCook', 'KYU20K6B', 'Aristotle Benjamin', 'Female', '2004-05-07', 'arcu.Morbi.sit@arcu.com', '2018-06-20 10:31:54.000000', 'I am coming back to face the reality that a normal day is not beer on the beach or calamari in the belly.', '083362876760', '../../Images/User/5/profPic.png\r\n', ''),
+(6, 'CynthiaEspinoza', 'XAK99P0R', 'Cherokee Richard', 'Female', '1994-12-02', 'nec.urna@euismodestarcu.com', '2019-01-06 13:39:35.000000', 'leo. Vivamus', '084011644816', NULL, ''),
+(7, 'GrantGallegos', 'OXA36E2X', 'Nina Burnett', 'Male', '1983-03-29', 'leo.Vivamus@ultriciesadipiscing.ca', '2016-12-02 06:51:43.000000', 'magna. Sed eu', '088517106412', NULL, ''),
+(8, 'GenevieveFinley', 'VQF38T5G', 'Yasir Wooten', 'Male', '2006-05-22', 'mi@nibhDonec.co.uk', '2018-01-25 20:29:22.000000', 'commodo ipsum. Suspendisse non', '086769564101', NULL, ''),
+(9, 'TeaganCole', 'HGX87O2S', 'Harrison Arnold', 'Female', '2009-01-25', 'in.felis.Nulla@nibhsit.edu', '2017-07-18 04:32:44.000000', 'You know your in love when you can’t fall asleep because reality is finally better than your dreams.', '081472621158', '../../Images/User/9/profPic.png', ''),
+(10, 'VenusNoel', 'RVK13J1X', 'Ahmed Anderson', 'Female', '2008-12-13', 'urna.Vivamus@sed.ca', '2017-12-05 15:48:20.000000', 'magna tellus faucibus leo,', '086534076547', NULL, ''),
+(11, 'JonasHunt', 'HNQ56K4I', 'Samantha Beard', 'Female', '2007-12-29', 'arcu.Morbi.sit@Pellentesquehabitantmorbi.com', '2017-12-02 21:27:55.000000', 'sodales. Mauris', '086794742592', NULL, ''),
+(12, 'ElliottValencia', 'QAA83E0U', 'Demetria Sanford', 'Male', '2005-12-08', 'venenatis.lacus@Fusce.com', '2018-08-31 16:44:02.000000', 'eu, odio. Phasellus at', '081459580721', NULL, ''),
+(13, 'SteelAnthony', 'QYO55S7O', 'Aquila Roy', 'Male', '1998-03-18', 'varius@anequeNullam.com', '2018-06-07 04:01:49.000000', 'morbi tristique senectus', '081218275578', '../../Images/User/13/profPic.png', ''),
+(14, 'JackLara', 'KHH26S6K', 'Keith Elliott', 'Male', '1981-11-15', 'Sed.nulla@fringilla.co.uk', '2016-06-10 10:35:24.000000', 'odio. Phasellus at', '084876226697', NULL, ''),
+(15, 'TylerSandoval', 'NFZ18X6H', 'Erich Cantrell', 'Male', '1990-04-10', 'ante.lectus.convallis@neque.org', '2016-03-22 04:25:04.000000', 'gravida sit amet, dapibus', '080131315989', NULL, ''),
+(16, 'SybilWyatt', 'GTD32Z7Y', 'Malik Lambert', 'Male', '1982-01-23', 'quis.urna@nuncrisusvarius.net', '2019-01-06 01:38:51.000000', 'euismod ac, fermentum', '084978661432', NULL, ''),
+(17, 'WadeAlvarado', 'OWV28H6V', 'Astra Joseph', 'Female', '2004-07-11', 'Cum@magnis.co.uk', '2018-04-09 06:01:49.000000', 'My life is about as organized as the $5 DVD bin at Wal-Mart.', '086022688363', '../../Images/User/17/profPic.jpg', ''),
+(18, 'JasonErickson', 'LAA69S2Q', 'Joel Odonnell', 'Female', '2005-12-27', 'nec.leo.Morbi@Ut.edu', '2018-03-06 21:02:44.000000', 'Curabitur massa.', '086410731127', NULL, ''),
+(19, 'KasperHopper', 'FAY27K3X', 'Shana Peterson', 'Female', '1990-11-13', 'nunc@netuset.com', '2018-05-26 01:49:18.000000', 'purus gravida', '080875534491', NULL, ''),
+(20, 'AmosMolina', 'XOU06V8C', 'Charde Lester', 'Male', '1994-01-18', 'ornare.elit.elit@antedictumcursus.ca', '2017-09-18 17:04:15.000000', 'semper', '086831624542', NULL, ''),
+(21, 'ColtMoran', 'HEY84S6U', 'Bryar Vang', 'Male', '2007-04-01', 'Phasellus.dapibus.quam@orciUt.edu', '2017-10-23 02:38:05.000000', 'imperdiet', '082239809773', NULL, ''),
+(22, 'JulianClayton', 'UBQ51K0Y', 'Jamalia Mayo', 'Female', '2000-01-08', 'Donec@inmagna.org', '2017-05-21 08:37:37.000000', 'tempor lorem, eget mollis', '089245801552', NULL, ''),
+(23, 'HadassahMorris', 'PTV35B6I', 'Slade Hansen', 'Female', '1985-07-24', 'semper@egestas.org', '2017-12-21 13:39:40.000000', 'consectetuer rhoncus. Nullam', '085586641137', NULL, ''),
+(24, 'XylaBrady', 'SBM45X1V', 'Lucy Heath', 'Female', '1989-06-17', 'Curabitur@Maurismagna.edu', '2018-05-09 03:18:08.000000', 'pretium aliquet, metus', '085731026214', NULL, ''),
+(25, 'QuentinBarnes', 'UMT10E2R', 'Naomi Craig', 'Female', '1996-04-25', 'lacinia.vitae.sodales@iaculislacus.net', '2019-01-31 09:48:03.000000', 'id, ante. Nunc mauris', '082165956486', NULL, ''),
+(26, 'AmyBerg', 'QWH27S3F', 'Abbot Martin', 'Female', '2006-11-05', 'dapibus@et.net', '2017-05-30 11:23:59.000000', 'mattis ornare, lectus ante', '082005423521', NULL, ''),
+(27, 'FritzKramer', 'JPR00Q6F', 'Kenneth Oneill', 'Male', '1983-05-25', 'pellentesque@leo.org', '2017-01-27 22:34:02.000000', 'porttitor', '088021263918', NULL, ''),
+(28, 'KadenFields', 'AZN11J7W', 'Evelyn Burton', 'Male', '2008-09-05', 'Donec.sollicitudin@justoProinnon.co.uk', '2016-04-27 10:58:50.000000', 'Vivamus molestie dapibus', '086852379024', NULL, ''),
+(29, 'CelesteVinson', 'UCQ73C3G', 'Zenaida Mcmahon', 'Male', '1982-08-06', 'taciti.sociosqu@Aliquam.ca', '2017-01-21 21:17:22.000000', 'I am coming back to face the reality that a normal day is not beer on the beach or calamari in the belly.', '088034042002', '../../Images/User/29/profPic.png\r\n', ''),
+(30, 'RoganSerrano', 'DPK44U2L', 'Sarah Orr', 'Female', '2001-05-17', 'at.augue@penatibus.co.uk', '2016-08-01 15:27:17.000000', 'ac mattis velit', '086528158869', NULL, ''),
+(31, 'LamarOneal', 'DDC32Z8K', 'Mason Potts', 'Male', '1999-10-28', 'aliquet@massarutrum.co.uk', '2017-10-22 14:00:40.000000', 'faucibus id, libero. Donec', '080066308213', NULL, ''),
+(32, 'ShellyLee', 'AOJ45K9D', 'Keith England', 'Female', '1992-07-16', 'at.libero@sapien.net', '2018-08-10 04:48:48.000000', 'nisi sem', '089255565530', NULL, ''),
+(33, 'FerrisRobertson', 'YNH33N8N', 'Hector Gonzales', 'Male', '2009-08-26', 'lacus.Ut@ac.edu', '2018-04-09 18:27:17.000000', 'nascetur', '080008308637', NULL, ''),
+(34, 'SteelDuffy', 'RCN10B5C', 'Ezra Combs', 'Male', '1980-05-03', 'eu.dolor@Phasellusliberomauris.org', '2017-04-23 04:48:15.000000', 'libero.', '086114473358', NULL, ''),
+(35, 'OrliSherman', 'DNA79L1K', 'Paki Britt', 'Female', '2000-02-29', 'faucibus.leo@fringillapurus.edu', '2017-02-17 16:13:21.000000', 'vitae dolor. Donec', '081922738695', NULL, ''),
+(36, 'QuamarHobbs', 'NMS39S1Y', 'Kitra Fleming', 'Male', '2003-09-26', 'tortor.dictum.eu@sitametrisus.org', '2018-06-16 02:45:23.000000', 'sollicitudin', '084762400886', NULL, ''),
+(37, 'BriarStrickland', 'SBT58R3N', 'Dane Stuart', 'Male', '1999-09-01', 'at.fringilla@Proinvel.co.uk', '2018-10-01 06:24:33.000000', 'malesuada fames ac turpis', '087267231669', NULL, ''),
+(38, 'RaymondReed', 'EAV16X9U', 'Phillip Hahn', 'Male', '1990-11-29', 'Cras.eu@acsem.org', '2016-12-15 21:46:51.000000', 'Donec', '086818257213', NULL, ''),
+(39, 'ColePacheco', 'QNO53K3T', 'Portia Obrien', 'Male', '1985-06-21', 'vestibulum.lorem.sit@mi.co.uk', '2016-05-13 03:31:44.000000', 'pharetra. Quisque', '085110343975', NULL, ''),
+(40, 'AquilaSawyer', 'FON92L6Y', 'Jada Rosario', 'Female', '2005-05-18', 'sit.amet.metus@cursusnon.org', '2017-06-07 13:30:24.000000', 'I recently gave up Warcraft so my productivity, and drinking, have increased dramatically.', '086072861880', '../../Images/User/40/profPic.png\r\n', ''),
+(41, 'HedwigKey', 'XTV97N7B', 'Giacomo Roman', 'Female', '2003-01-02', 'at.nisi@elit.net', '2018-03-16 18:59:24.000000', 'Maecenas libero', '085793776814', NULL, ''),
+(42, 'ShaeleighWatts', 'GBX96H8T', 'Lunea Dennis', 'Female', '2009-07-24', 'neque@loremsemperauctor.org', '2018-03-03 13:49:38.000000', 'mauris ut mi.', '082347637712', NULL, ''),
+(43, 'KennethEverett', 'OEV65H5H', 'Hayfa Dunlap', 'Female', '1980-06-21', 'montes@mi.ca', '2016-07-03 06:52:17.000000', 'eu', '089672108918', NULL, ''),
+(44, 'WyattMeyer', 'QFV53N2D', 'Reese Simon', 'Male', '2003-07-10', 'est.ac@Nuncac.org', '2019-01-04 12:19:56.000000', 'mattis.', '083994850276', NULL, ''),
+(45, 'AmberStark', 'SFH77W2D', 'Cally Salas', 'Male', '1996-03-13', 'non@Curabiturut.com', '2016-05-01 08:11:34.000000', 'tincidunt,', '082265823798', NULL, ''),
+(46, 'SloaneWebster', 'WPF17N4G', 'Nayda Ball', 'Male', '2000-09-25', 'Cum.sociis@Sedmalesuada.com', '2018-03-18 16:38:48.000000', 'pellentesque eget, dictum placerat,', '084274961849', NULL, ''),
+(47, 'NevilleKennedy', 'SXB17N4K', 'Idona Mccray', 'Female', '1987-04-29', 'lorem.semper@elit.net', '2017-01-26 20:02:58.000000', 'porttitor scelerisque neque. Nullam', '089597448703', NULL, ''),
+(48, 'AleaBrooks', 'AUT80C7J', 'Amos Ferrell', 'Male', '1998-02-26', 'Praesent.luctus@fringillaest.net', '2017-08-26 12:42:47.000000', 'orci tincidunt adipiscing. Mauris', '088779759934', NULL, ''),
+(49, 'ReubenWeaver', 'LIM29M9Y', 'Keely Wiley', 'Female', '2009-12-27', 'dui.quis@Vestibulumanteipsum.com', '2016-10-27 21:28:22.000000', 'egestas. Duis ac', '083398209113', NULL, ''),
+(50, 'RonanBlack', 'RXK72F1P', 'Colorado Wheeler', 'Female', '2005-10-16', 'vehicula@consequat.com', '2018-08-16 16:46:46.000000', 'iaculis', '082599939255', NULL, ''),
+(51, 'DeanCantrell', 'PRT81L1S', 'Shaine Benjamin', 'Female', '2000-01-28', 'urna.convallis.erat@arcu.edu', '2017-06-12 16:48:48.000000', 'Nunc sed orci', '089574834829', NULL, ''),
+(52, 'WallaceGreene', 'XPG66P6C', 'Desiree Nelson', 'Male', '1993-12-17', 'Nulla.dignissim@ullamcorper.com', '2017-05-29 12:58:27.000000', 'odio. Aliquam', '089552700294', NULL, ''),
+(53, 'ScarletYoung', 'TGB70Q8Q', 'Jael Combs', 'Female', '1992-03-02', 'a@accumsan.org', '2018-08-04 19:10:02.000000', 'Eating a whole apple core because you can’t be bothered going to the bin, admit it, you’ve done it.', '084545694921', '../../Images/User/53/profPic.png\r\n', ''),
+(54, 'RossRiley', 'OMT10T0D', 'Serena Dorsey', 'Male', '1997-09-07', 'morbi.tristique@aliquetodio.ca', '2017-01-22 12:17:09.000000', 'lacus.', '085917534965', NULL, ''),
+(55, 'XanthusVance', 'ZAD08M0V', 'Reese Delaney', 'Female', '1996-12-31', 'lorem.ipsum@aneque.ca', '2017-10-05 22:16:04.000000', 'dapibus ligula.', '080872009957', NULL, ''),
+(56, 'ErichDavenport', 'AUV41X8U', 'Jackson Weber', 'Female', '2001-01-09', 'sed@lobortisClassaptent.edu', '2018-01-28 19:56:21.000000', 'neque. Nullam nisl.', '081459962355', NULL, ''),
+(57, 'WendyReyes', 'LFB84Z9S', 'Colleen Griffin', 'Female', '1981-06-26', 'Mauris@felis.co.uk', '2017-10-03 10:39:38.000000', 'amet, consectetuer adipiscing', '085539851920', NULL, ''),
+(58, 'LeonardBrady', 'SWV52A6J', 'Gisela Combs', 'Male', '1993-04-08', 'feugiat@turpisnon.ca', '2016-12-14 09:49:16.000000', 'Can someone tell me my Instagram username I locked myself out and I do not know what to do', '089846011553', '../../Images/User/58/profPic.png\r\n', ''),
+(59, 'StellaMcmillan', 'ZPE69E0R', 'Ursula Livingston', 'Female', '1984-08-01', 'pede.Cum.sociis@placeratvelitQuisque.edu', '2017-11-28 00:40:23.000000', 'sit amet luctus', '086706256097', NULL, ''),
+(60, 'BrendenMccarty', 'PCD56P7W', 'Steven Wilson', 'Male', '2003-10-11', 'fringilla@fringillaDonec.edu', '2017-10-06 09:19:03.000000', 'et ipsum', '081446024989', NULL, ''),
+(61, 'KayeLester', 'IYG04A5X', 'Shafira Howe', 'Male', '2004-09-20', 'Donec.est@eleifendCrassed.net', '2016-04-26 22:16:05.000000', 'Morbi vehicula. Pellentesque tincidunt', '083973094784', NULL, '');
 
 --
 -- Indexes for dumped tables
@@ -3843,25 +3868,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idComment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `idComment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
 
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `idLikes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2002;
+  MODIFY `idLikes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2006;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `idPost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
+  MODIFY `idPost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=310;
 
 --
 -- AUTO_INCREMENT for table `relationship`
 --
 ALTER TABLE `relationship`
-  MODIFY `idRelation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=334;
+  MODIFY `idRelation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=337;
 
 --
 -- AUTO_INCREMENT for table `user`

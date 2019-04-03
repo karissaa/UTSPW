@@ -96,8 +96,10 @@
                     $followedQuery = $db->prepare("SELECT idFollowed FROM relationship WHERE idFollower = :userID");
                     $followedQuery->bindParam(':userID', $_SESSION['user_id']);
 
-                    if($followedQuery->execute())
+                    if($followedQuery->execute()){
                         $followings = $followedQuery->fetchAll(PDO::FETCH_ASSOC);
+                        $includeView = 'followingView.php';
+                    }
                 }
             }
         } catch (PDOException $e) {
